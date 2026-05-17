@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Underwriting Portal – PolicyPilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/styles.css">
+</head>
+<body>
+<div id="toast-container"></div>
+<div class="app-layout">
+  <header class="app-header">
+    <a class="app-logo" href="#" onclick="navigate('dashboard');return false">
+      <div class="app-logo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6L12 2z" fill="white"/></svg></div>
+      <div><span class="app-logo-text">PolicyPilot</span><span class="app-logo-sub" id="portal-sub">Underwriting Portal</span></div>
+    </a>
+    <div class="header-right">
+      <button class="notif-btn" onclick="openNotifDrawer(getSession().role)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-badge" id="notif-badge" style="display:none">0</span></button>
+      <div id="user-chip-header"></div>
+      <button class="btn btn-ghost btn-sm" style="color:rgba(255,255,255,0.6)" onclick="doLogout()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Logout
+      </button>
+    </div>
+  </header>
+  <div class="app-body">
+    <aside class="app-sidebar" id="sidebar">
+      <button class="sidebar-item" data-section="dashboard" onclick="navigate('dashboard')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard
+      </button>
+      <button class="sidebar-item" data-section="queue" onclick="navigate('queue')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        My Queue <span class="badge" id="badge-queue">0</span>
+      </button>
+      <button class="sidebar-item" data-section="forwarded" onclick="navigate('forwarded')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Forwarded to Field <span class="badge yellow" id="badge-esc">0</span>
+      </button>
+      <button class="sidebar-item" data-section="completed" onclick="navigate('completed')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Completed
+      </button>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-section-title">Platform</div>
+      <button class="sidebar-item" data-section="products" onclick="navigate('products')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Products & Plans
+      </button>
+      <button class="sidebar-item" data-section="rules" onclick="navigate('rules')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Rule Engine
+      </button>
+      <button class="sidebar-item" data-section="config" onclick="navigate('config')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Platform Config
+      </button>
+      <button class="sidebar-item" data-section="users" onclick="navigate('users')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>User Management
+      </button>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-section-title">Reports</div>
+      <button class="sidebar-item" data-section="reports" onclick="navigate('reports')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Reports
+      </button>
+      <button class="sidebar-item" data-section="audit-log" onclick="navigate('audit-log')">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Audit Log
+      </button>
+      <div class="sidebar-logout">
+        <div class="sidebar-divider"></div>
+        <button class="sidebar-item" onclick="doLogout()">
+          <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out
+        </button>
+      </div>
+    </aside>
+    <main class="app-main" id="app-main"></main>
+  </div>
+</div>
+<script src="../../shared/utils.js"></script>
+<script src="../../shared/validators.js"></script>
+<script src="app.js"></script>
+<script>
+  const _user = requireAnyAuth();
+  if (_user) {
+    document.getElementById('user-chip-header').innerHTML = renderUserChip(_user);
+    updateNotifBadge(_user.role);
+    navigate('dashboard');
+    const allP = JSON.parse(localStorage.getItem('ti_policies') || '[]');
+    const qLen = allP.filter(p => p.status === 'Pending UW' || p.status === 'Pending UW Review').length;
+    const fLen = allP.filter(p => p.status === 'Forwarded to Field').length;
+    const qBadge = document.getElementById('badge-queue');
+    const eBadge = document.getElementById('badge-esc');
+    if (qBadge) qBadge.textContent = qLen;
+    if (eBadge) eBadge.textContent = fLen;
+  }
+</script>
+</body>
+</html>

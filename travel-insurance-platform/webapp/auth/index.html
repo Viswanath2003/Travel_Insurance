@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In – PolicyPilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+<div id="toast-container"></div>
+
+<div class="auth-page">
+  <!-- Left panel -->
+  <div class="auth-left">
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center">
+      <svg width="260" height="180" viewBox="0 0 260 180" fill="none">
+        <path d="M80 90 L180 60 L200 65 L180 75 L150 120 L135 115 L145 95 L100 105Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        <path d="M20 130 Q130 20 240 80" stroke="rgba(0,194,168,0.6)" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+        <circle cx="20" cy="130" r="6" fill="#00C2A8" opacity="0.8"/>
+        <circle cx="240" cy="80" r="6" fill="#00C2A8" opacity="0.8"/>
+        <path d="M125 100 L115 95 L115 108 Q115 118 125 124 Q135 118 135 108 L135 95Z" fill="rgba(0,194,168,0.5)" stroke="rgba(0,194,168,0.8)" stroke-width="1.5"/>
+        <path d="M120 108 L123 111 L131 103" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="60" cy="50" r="2" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="200" cy="30" r="2" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="220" cy="130" r="2" fill="rgba(255,255,255,0.4)"/>
+      </svg>
+      <div class="auth-brand">PolicyPilot</div>
+      <div class="auth-tagline">Adaptive Travel Insurance Platform<br>for the modern traveler</div>
+      <div class="auth-features">
+        <div class="auth-feature"><span class="dot"></span>Personalized coverage for every journey</div>
+        <div class="auth-feature"><span class="dot"></span>Transparent pricing, instant quotes</div>
+        <div class="auth-feature"><span class="dot"></span>Faster claims with AI automation</div>
+        <div class="auth-feature"><span class="dot"></span>24/7 support worldwide</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel -->
+  <div class="auth-right">
+    <div class="auth-logo">
+      <div class="auth-logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6L12 2z" fill="white"/></svg>
+      </div>
+      <div>
+        <span class="auth-logo-text">PolicyPilot</span>
+        <span class="auth-logo-sub">Adaptive Travel Insurance</span>
+      </div>
+    </div>
+
+    <h1 class="auth-title">Welcome back!</h1>
+    <p class="auth-subtitle">Sign in to your account to continue.</p>
+
+    <!-- Login type tabs -->
+    <div class="tabs">
+      <button class="tab-item active" id="tab-customer" onclick="switchLoginTab('customer')">Customer</button>
+      <button class="tab-item" id="tab-staff" onclick="switchLoginTab('staff')">Staff Portal</button>
+    </div>
+
+    <!-- Customer Login -->
+    <div id="form-customer">
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <div class="form-input-wrap">
+          <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <input type="email" id="c-email" class="form-input" placeholder="you@example.com" oninput="clearErr('c-email-err')" onblur="validateLoginEmail()">
+        </div>
+        <div id="c-email-err" class="form-error"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div class="form-input-wrap">
+          <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <input type="password" id="c-password" class="form-input" placeholder="Enter your password" oninput="clearErr('c-pwd-err')" onblur="validateLoginPwd()">
+          <button class="input-icon-right" onclick="togglePwd('c-password',this)" tabindex="-1" title="Show/hide">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div id="c-pwd-err" class="form-error"></div>
+      </div>
+      <div class="flex justify-between items-center" style="margin-bottom:24px">
+        <label class="checkbox-wrap">
+          <input type="checkbox" id="c-remember"> <span style="font-size:13px;color:var(--gray-600)">Remember me</span>
+        </label>
+        <a href="forgot-password.html" class="link text-sm">Forgot Password?</a>
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" id="c-login-btn" onclick="doCustomerLogin()">
+        <span id="c-btn-text">Sign In</span>
+        <div id="c-spinner" class="spinner hidden"></div>
+      </button>
+      <div class="divider">or</div>
+      <button class="btn btn-secondary btn-block" style="gap:8px" onclick="showToast('Google login coming soon','info')">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Continue with Google
+      </button>
+      <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--gray-500)">
+        Don't have an account? <a href="register.html" class="link">Create Account</a>
+      </p>
+    </div>
+
+    <!-- Staff Login -->
+    <!-- Role is detected automatically from the work email domain:
+         name.agent@policypilot.com        → Agent portal
+         name.underwriter@policypilot.com  → Underwriter portal
+         name.claims@policypilot.com       → Claims Officer portal
+         name.field@policypilot.com        → Field Officer portal
+         name.finance@policypilot.com      → Finance portal
+         name.rm@policypilot.com           → Relationship Manager portal  -->
+    <div id="form-staff" class="hidden">
+      <div class="form-group">
+        <label class="form-label">Work Email</label>
+        <div class="form-input-wrap">
+          <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <input type="email" id="s-email" class="form-input" placeholder="yourname.role@policypilot.com" oninput="clearErr('s-email-err');detectStaffRole()" onblur="validateStaffEmail()">
+        </div>
+        <div id="s-email-err" class="form-error"></div>
+        <div id="s-role-badge" class="form-hint hidden"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div class="form-input-wrap">
+          <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <input type="password" id="s-password" class="form-input" placeholder="Enter your password" oninput="clearErr('s-pwd-err')" onblur="validateStaffPwd()">
+          <button class="input-icon-right" onclick="togglePwd('s-password',this)" tabindex="-1" title="Show/hide">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div id="s-pwd-err" class="form-error"></div>
+      </div>
+      <div style="text-align:right;margin-bottom:20px">
+        <a href="forgot-password.html" class="link text-sm">Forgot Password?</a>
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" id="s-login-btn" onclick="doStaffLogin()">
+        <span id="s-btn-text">Sign In to Portal</span>
+        <div id="s-spinner" class="spinner hidden"></div>
+      </button>
+      <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--gray-500)">
+        Need access? Contact your team administrator.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="../shared/utils.js"></script>
+<script src="auth.js"></script>
+<script>
+  (function() {
+    const s = getSession();
+    if (s && s.role) redirectToPortal(s.role);
+  })();
+</script>
+</body>
+</html>

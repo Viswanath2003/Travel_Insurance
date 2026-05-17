@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Recurse \"g:\\\\Java_Insurance\\\\travel-insurance-platform\\\\database\\\\schema\" | Where-Object { !$_.PSIsContainer } | Select-Object Name, @{N='Size\\(KB\\)';E={[math]::Round\\($_.Length/1KB,1\\)}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"g:\\\\Java_Insurance\\\\travel-insurance-platform\\\\backend\\\\shared-libs\" -Recurse -Directory | ForEach-Object { $_.FullName.Replace\\(\"G:\\\\Java_Insurance\\\\travel-insurance-platform\\\\backend\\\\shared-libs\\\\\", \"shared-libs/\"\\) })",
+      "Bash(Get-ChildItem \"g:\\\\Java_Insurance\\\\travel-insurance-platform\\\\webapp\\\\portals\" -Recurse -Filter \"app.js\")",
+      "Bash(Select-Object FullName)",
+      "Bash(node -e ' *)",
+      "Bash(ls \"G:\\\\Java_Insurance\\\\\" 2>/dev/null)",
+      "Read(//g/Java_Insurance\" 2>/dev/**)"
+    ]
+  }
+}

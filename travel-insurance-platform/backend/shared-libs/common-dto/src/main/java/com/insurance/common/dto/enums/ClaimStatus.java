@@ -1,0 +1,19 @@
+package com.insurance.common.dto.enums;
+
+public enum ClaimStatus {
+    SUBMITTED,
+    DOCUMENT_REVIEW,
+    DOCUMENT_PENDING,
+    UNDER_REVIEW,
+    INVESTIGATION_ASSIGNED,
+    INVESTIGATION_COMPLETE,
+    DECISION_PENDING,
+    AUTO_APPROVED,
+    AUTO_DECLINED,
+    APPROVED,
+    PARTIALLY_APPROVED,
+    DECLINED,
+    PAYMENT_PENDING,
+    SETTLED,
+    CLOSED
+}

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relationship Manager Portal – PolicyPilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/styles.css">
+</head>
+<body>
+<div id="toast-container"></div>
+<div class="app-layout">
+  <header class="app-header">
+    <a class="app-logo" href="#" onclick="navigate('dashboard');return false">
+      <div class="app-logo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6L12 2z" fill="white"/></svg></div>
+      <div><span class="app-logo-text">PolicyPilot</span><span class="app-logo-sub">Relationship Manager</span></div>
+    </a>
+    <div class="header-right">
+      <button class="notif-btn" onclick="openNotifDrawer(getSession().role)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-badge" id="notif-badge" style="display:none">0</span></button>
+      <div id="user-chip-header"></div>
+      <button class="btn btn-ghost btn-sm" style="color:rgba(255,255,255,0.6)" onclick="doLogout()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Logout</button>
+    </div>
+  </header>
+  <div class="app-body">
+    <aside class="app-sidebar" id="sidebar">
+      <button class="sidebar-item" data-section="dashboard" onclick="navigate('dashboard')"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</button>
+      <button class="sidebar-item" data-section="clients" onclick="navigate('clients')"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>My Clients <span class="badge">48</span></button>
+      <button class="sidebar-item" data-section="policies" onclick="navigate('policies')"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Client Policies</button>
+      <button class="sidebar-item" data-section="claims" onclick="navigate('claims')"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Client Claims <span class="badge">7</span></button>
+      <button class="sidebar-item" data-section="renewals" onclick="navigate('renewals')"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Renewals Due <span class="badge" style="background:var(--orange);color:white">12</span></button>
+      <div class="sidebar-divider"></div>
+      <button class="sidebar-item" data-section="performance" onclick="navigate('performance')"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>My Performance</button>
+      <button class="sidebar-item" data-section="reports" onclick="navigate('reports')"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>Reports</button>
+      <div class="sidebar-logout"><div class="sidebar-divider"></div>
+        <button class="sidebar-item" onclick="doLogout()"><svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out</button>
+      </div>
+    </aside>
+    <main class="app-main" id="app-main"></main>
+  </div>
+</div>
+<script src="../../shared/utils.js"></script>
+<script src="../../shared/validators.js"></script>
+<script src="app.js"></script>
+<script>
+  const _user = requireAnyAuth();
+  if (_user) { document.getElementById('user-chip-header').innerHTML = renderUserChip(_user); updateNotifBadge(_user.role); navigate('dashboard'); }
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account – PolicyPilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+<div id="toast-container"></div>
+
+<div class="auth-page">
+  <div class="auth-left">
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center">
+      <svg width="220" height="160" viewBox="0 0 220 160" fill="none">
+        <circle cx="110" cy="80" r="60" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <circle cx="110" cy="80" r="40" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <path d="M90 80 L100 90 L130 60" stroke="#00C2A8" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M30 130 Q80 80 130 110 Q170 130 200 90" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+      </svg>
+      <div class="auth-brand">Create Account</div>
+      <div class="auth-tagline">Join thousands of travelers who trust PolicyPilot for comprehensive protection</div>
+      <div class="auth-features" style="margin-top:32px">
+        <div class="auth-feature"><span class="dot"></span>Instant policy activation</div>
+        <div class="auth-feature"><span class="dot"></span>Secure, encrypted data storage</div>
+        <div class="auth-feature"><span class="dot"></span>Cancel anytime, no penalties</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-right" style="padding:36px 48px;justify-content:flex-start;overflow-y:auto">
+    <div class="auth-logo">
+      <div class="auth-logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6L12 2z" fill="white"/></svg></div>
+      <div><span class="auth-logo-text">PolicyPilot</span><span class="auth-logo-sub">Adaptive Travel Insurance</span></div>
+    </div>
+
+    <h1 class="auth-title">Create Your Account</h1>
+    <p class="auth-subtitle">Fill in the details below to get started.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Full Name <span style="color:var(--red)">*</span></label>
+        <input type="text" id="reg-name" class="form-input" placeholder="John Doe"
+          oninput="clearErr('reg-name-error')" onblur="setErr('reg-name-error', Validators.name(this.value.trim()))">
+        <div id="reg-name-error" class="form-error"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date of Birth <span style="color:var(--red)">*</span></label>
+        <input type="date" id="reg-dob" class="form-input"
+          oninput="clearErr('reg-dob-error')" onblur="setErr('reg-dob-error', Validators.dob(this.value))">
+        <div id="reg-dob-error" class="form-error"></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Email Address <span style="color:var(--red)">*</span></label>
+      <div class="form-input-wrap">
+        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <input type="email" id="reg-email" class="form-input" placeholder="you@example.com"
+          oninput="clearErr('reg-email-error')" onblur="setErr('reg-email-error', Validators.email(this.value.trim()))">
+      </div>
+      <div id="reg-email-error" class="form-error"></div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Mobile Number <span style="color:var(--red)">*</span></label>
+      <div class="flex gap-2">
+        <select class="form-select" id="reg-country-code" style="width:110px;flex-shrink:0">
+          <option value="+91">🇮🇳 +91</option>
+          <option value="+1">🇺🇸 +1</option>
+          <option value="+44">🇬🇧 +44</option>
+          <option value="+971">🇦🇪 +971</option>
+          <option value="+65">🇸🇬 +65</option>
+          <option value="+61">🇦🇺 +61</option>
+        </select>
+        <input type="tel" id="reg-phone" class="form-input" placeholder="9876543210"
+          oninput="clearErr('reg-phone-error')" onblur="setErr('reg-phone-error', Validators.phone(this.value.trim()))">
+      </div>
+      <div id="reg-phone-error" class="form-error"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Password <span style="color:var(--red)">*</span></label>
+        <div class="form-input-wrap">
+          <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <input type="password" id="reg-password" class="form-input" placeholder="Create a password"
+            oninput="onRegPwdInput(this.value)" onblur="setErr('reg-password-error', Validators.password(this.value))">
+          <button class="input-icon-right" onclick="togglePwd('reg-password',this)" tabindex="-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div id="reg-password-error" class="form-error"></div>
+        <div class="pw-strength">
+          <div class="pw-strength-bar" id="reg-pw-bar"><span></span><span></span><span></span><span></span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="pw-rules" id="reg-pw-rules">
+              <div class="pw-rule" id="reg-rule-len">○ At least 8 characters</div>
+              <div class="pw-rule" id="reg-rule-upper">○ One uppercase letter</div>
+              <div class="pw-rule" id="reg-rule-lower">○ One lowercase letter</div>
+              <div class="pw-rule" id="reg-rule-num">○ One number</div>
+              <div class="pw-rule" id="reg-rule-special">○ One special character (!@#$...)</div>
+            </div>
+            <span class="pw-strength-label" id="reg-pw-label" style="margin-left:8px;white-space:nowrap"></span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirm Password <span style="color:var(--red)">*</span></label>
+        <div class="form-input-wrap">
+          <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <input type="password" id="reg-confirm" class="form-input" placeholder="Repeat your password"
+            oninput="clearErr('reg-confirm-error')" onblur="validateConfirm()">
+          <button class="input-icon-right" onclick="togglePwd('reg-confirm',this)" tabindex="-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div id="reg-confirm-error" class="form-error"></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-wrap">
+        <input type="checkbox" id="reg-terms">
+        <span style="font-size:13px;color:var(--gray-600)">
+          I agree to the <a href="#" class="link">Terms &amp; Conditions</a> and <a href="#" class="link">Privacy Policy</a>
+        </span>
+      </label>
+      <div id="reg-terms-error" class="form-error"></div>
+    </div>
+
+    <button class="btn btn-primary btn-block btn-lg" id="reg-btn" onclick="doRegister()">
+      <span id="reg-btn-text">Create Account</span>
+      <div id="reg-spinner" class="spinner hidden"></div>
+    </button>
+    <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--gray-500)">
+      Already have an account? <a href="index.html" class="link">Sign In</a>
+    </p>
+  </div>
+</div>
+
+<script src="../shared/utils.js"></script>
+<script src="auth.js"></script>
+<script>
+function onRegPwdInput(pwd) {
+  clearErr('reg-password-error');
+  checkPasswordStrength(pwd, 'reg-pw-bar', 'reg-pw-label');
+  checkPwRules(pwd, 'reg');
+}
+function validateConfirm() {
+  const p = document.getElementById('reg-password').value;
+  const c = document.getElementById('reg-confirm').value;
+  if (!c) { setErr('reg-confirm-error','Please confirm your password.'); return; }
+  if (p !== c) setErr('reg-confirm-error','Passwords do not match.');
+  else clearErr('reg-confirm-error');
+}
+</script>
+</body>
+</html>
