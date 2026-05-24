@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PolicyPilot_FINAL_v4.zip_expanded" project="PolicyPilot_FINAL_v4.zip_expanded" tests="197" started="197" failures="3" errors="16" ignored="0">
+  <testsuite name="com.insurance.dao.ClaimDaoTest" time="5.275" displayname="ClaimDaoTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]">
+    <testcase name="findAll_atLeastTwoClaims" classname="com.insurance.dao.ClaimDaoTest" time="0.121" displayname="findAll: returns at least 2 seed claims, mandatory fields non-null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findAll_atLeastTwoClaims()]"/>
+    <testcase name="findById_seedClaim1_immutable" classname="com.insurance.dao.ClaimDaoTest" time="0.0" displayname="findById: seed claim CLM-2026-000001 - immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findById_seedClaim1_immutable()]"/>
+    <testcase name="findById_seedClaim2_exists" classname="com.insurance.dao.ClaimDaoTest" time="0.0" displayname="findById: seed claim CLM-2026-000002 exists and has valid fields" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findById_seedClaim2_exists()]"/>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.dao.ClaimDaoTest" time="0.0" displayname="findById: non-existent ID returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="findByClaimReference_seed001" classname="com.insurance.dao.ClaimDaoTest" time="0.0" displayname="findByClaimReference: CLM-2026-000001 found" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByClaimReference_seed001()]"/>
+    <testcase name="findByClaimReference_nonExistent_null" classname="com.insurance.dao.ClaimDaoTest" time="0.0" displayname="findByClaimReference: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByClaimReference_nonExistent_null()]"/>
+    <testcase name="findByPolicyId_seedPolicy1" classname="com.insurance.dao.ClaimDaoTest" time="0.0" displayname="findByPolicyId: seed policy 1 has at least 1 claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByPolicyId_seedPolicy1()]"/>
+    <testcase name="findByPolicyId_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.058" displayname="findByPolicyId: unknown policy returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByPolicyId_unknown_empty()]"/>
+    <testcase name="findByCustomerId_shankar_notEmpty" classname="com.insurance.dao.ClaimDaoTest" time="0.079" displayname="findByCustomerId: Shankar has at least 1 claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByCustomerId_shankar_notEmpty()]"/>
+    <testcase name="findByCustomerId_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.096" displayname="findByCustomerId: unknown customer returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByCustomerId_unknown_empty()]"/>
+    <testcase name="findByStatus_approved_allApproved" classname="com.insurance.dao.ClaimDaoTest" time="0.066" displayname="findByStatus: APPROVED only returns APPROVED claims" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByStatus_approved_allApproved()]"/>
+    <testcase name="findByStatus_submitted_foundOwnClaim" classname="com.insurance.dao.ClaimDaoTest" time="0.422" displayname="findByStatus: test-owned SUBMITTED claim found" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByStatus_submitted_foundOwnClaim()]"/>
+    <testcase name="findByStatus_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.058" displayname="findByStatus: unknown status returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByStatus_unknown_empty()]"/>
+    <testcase name="save_allFieldsPersisted" classname="com.insurance.dao.ClaimDaoTest" time="0.186" displayname="save+findById: all fields persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_allFieldsPersisted()]"/>
+    <testcase name="save_duplicateId_throws" classname="com.insurance.dao.ClaimDaoTest" time="0.46" displayname="save: duplicate ID throws RuntimeException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_duplicateId_throws()]"/>
+    <testcase name="save_baggageType" classname="com.insurance.dao.ClaimDaoTest" time="0.453" displayname="save: BAGGAGE type claim persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_baggageType()]"/>
+    <testcase name="save_highValue_true" classname="com.insurance.dao.ClaimDaoTest" time="0.216" displayname="save: isHighValue=true persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_highValue_true()]"/>
+    <testcase name="save_minimumAmount" classname="com.insurance.dao.ClaimDaoTest" time="0.355" displayname="save: minimum amount 0.01 persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_minimumAmount()]"/>
+    <testcase name="update_inReviewWithOfficer" classname="com.insurance.dao.ClaimDaoTest" time="0.627" displayname="update: SUBMITTED -&gt; IN_REVIEW with assignedOfficerId and fieldInvestigation=true" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_inReviewWithOfficer()]"/>
+    <testcase name="update_fieldApproved" classname="com.insurance.dao.ClaimDaoTest" time="0.351" displayname="update: IN_REVIEW -&gt; FIELD_APPROVED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_fieldApproved()]"/>
+    <testcase name="update_approved_allDecisionFields" classname="com.insurance.dao.ClaimDaoTest" time="0.646" displayname="update: APPROVED with approvedAmount, decidedBy, decisionReason, decidedAt" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_approved_allDecisionFields()]"/>
+    <testcase name="update_rejected_reasonPersisted" classname="com.insurance.dao.ClaimDaoTest" time="0.438" displayname="update: REJECTED with reason persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_rejected_reasonPersisted()]"/>
+    <testcase name="findByAssignedOfficerId_fieldOfficer" classname="com.insurance.dao.ClaimDaoTest" time="0.308" displayname="findByAssignedOfficerId: returns assigned claims for field officer" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByAssignedOfficerId_fieldOfficer()]"/>
+    <testcase name="findByAssignedOfficerId_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.085" displayname="findByAssignedOfficerId: unknown officer returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByAssignedOfficerId_unknown_empty()]"/>
+    <testcase name="save_secondCustomerClaim" classname="com.insurance.dao.ClaimDaoTest" time="0.227" displayname="save: second customer's claim on second policy persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_secondCustomerClaim()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.dao.PolicyDaoTest" time="5.66" displayname="PolicyDaoTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]">
+    <testcase name="findAll_atLeastThree" classname="com.insurance.dao.PolicyDaoTest" time="0.057" displayname="findAll: returns at least 3 seed policies, mandatory fields non-null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findAll_atLeastThree()]"/>
+    <testcase name="findByPolicyNumber_seed001" classname="com.insurance.dao.PolicyDaoTest" time="0.218" displayname="findByPolicyNumber: POL-2026-000001 found with correct immutable fields" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByPolicyNumber_seed001()]"/>
+    <testcase name="findByPolicyNumber_nonExistent_null" classname="com.insurance.dao.PolicyDaoTest" time="0.051" displayname="findByPolicyNumber: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByPolicyNumber_nonExistent_null()]"/>
+    <testcase name="findById_seed002_immutableFields" classname="com.insurance.dao.PolicyDaoTest" time="0.213" displayname="findById: seed policy ab-000002 (Priya JP) - immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findById_seed002_immutableFields()]"/>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.dao.PolicyDaoTest" time="0.053" displayname="findById: non-existent ID returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="findByCustomerId_shankar_notEmpty" classname="com.insurance.dao.PolicyDaoTest" time="0.05" displayname="findByCustomerId: Shankar has at least 1 policy" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByCustomerId_shankar_notEmpty()]"/>
+    <testcase name="findByCustomerId_priya_notEmpty" classname="com.insurance.dao.PolicyDaoTest" time="0.05" displayname="findByCustomerId: Priya has at least 1 policy" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByCustomerId_priya_notEmpty()]"/>
+    <testcase name="findByCustomerId_unknown_empty" classname="com.insurance.dao.PolicyDaoTest" time="0.048" displayname="findByCustomerId: unknown customer returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByCustomerId_unknown_empty()]"/>
+    <testcase name="findByStatus_active_allActive" classname="com.insurance.dao.PolicyDaoTest" time="0.681" displayname="findByStatus: ACTIVE policies all have status=ACTIVE" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_active_allActive()]"/>
+    <testcase name="findByStatus_quoted_allQuoted" classname="com.insurance.dao.PolicyDaoTest" time="0.242" displayname="findByStatus: QUOTED policies all have status=QUOTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_quoted_allQuoted()]"/>
+    <testcase name="findByStatus_pendingUw_allPendingUw" classname="com.insurance.dao.PolicyDaoTest" time="0.291" displayname="findByStatus: PENDING_UW policies all have status=PENDING_UW" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_pendingUw_allPendingUw()]"/>
+    <testcase name="findByStatus_unknown_empty" classname="com.insurance.dao.PolicyDaoTest" time="0.166" displayname="findByStatus: unknown status returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_unknown_empty()]"/>
+    <testcase name="save_allFieldsPersisted" classname="com.insurance.dao.PolicyDaoTest" time="0.204" displayname="save+findById: all fields persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_allFieldsPersisted()]"/>
+    <testcase name="save_duplicateId_throws" classname="com.insurance.dao.PolicyDaoTest" time="0.441" displayname="save: duplicate policy ID throws RuntimeException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_duplicateId_throws()]"/>
+    <testcase name="update_quotedToActive" classname="com.insurance.dao.PolicyDaoTest" time="0.547" displayname="update: QUOTED -&gt; ACTIVE with issueDate stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_quotedToActive()]"/>
+    <testcase name="update_cancelWithReason" classname="com.insurance.dao.PolicyDaoTest" time="0.499" displayname="update: ACTIVE -&gt; CANCELLED with cancellationReason stored" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_cancelWithReason()]"/>
+    <testcase name="update_riskChange" classname="com.insurance.dao.PolicyDaoTest" time="0.612" displayname="update: riskScore and riskLevel change persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_riskChange()]"/>
+    <testcase name="update_pendingUwToActive" classname="com.insurance.dao.PolicyDaoTest" time="0.459" displayname="update: PENDING_UW -&gt; ACTIVE (UW approval)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_pendingUwToActive()]"/>
+    <testcase name="save_ppPlusPlan" classname="com.insurance.dao.PolicyDaoTest" time="0.24" displayname="save: PP_PLUS plan ID persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_ppPlusPlan()]"/>
+    <testcase name="save_oneDayTrip" classname="com.insurance.dao.PolicyDaoTest" time="0.522" displayname="save: 1-day trip (startDate = endDate) persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_oneDayTrip()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.dao.UserDaoTest" time="2.643" displayname="UserDaoTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]">
+    <testcase name="findAll_hasAtLeastTenUsers" classname="com.insurance.dao.UserDaoTest" time="0.062" displayname="findAll: returns at least 10 seed users, all have id and role" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findAll_hasAtLeastTenUsers()]"/>
+    <testcase name="findById_shankarImmutableFields" classname="com.insurance.dao.UserDaoTest" time="0.058" displayname="findById: seed user Shankar Rajan - immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findById_shankarImmutableFields()]"/>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.dao.UserDaoTest" time="0.06" displayname="findById: non-existent ID returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="findByEmail_shankar" classname="com.insurance.dao.UserDaoTest" time="0.061" displayname="findByEmail: Shankar Rajan found by email" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByEmail_shankar()]"/>
+    <testcase name="findByEmail_nonExistent_null" classname="com.insurance.dao.UserDaoTest" time="0.051" displayname="findByEmail: non-existent email returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByEmail_nonExistent_null()]"/>
+    <testcase name="findByUsername_priya" classname="com.insurance.dao.UserDaoTest" time="0.052" displayname="findByUsername: priya_nair found and email matches" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByUsername_priya()]"/>
+    <testcase name="findByUsername_nonExistent_null" classname="com.insurance.dao.UserDaoTest" time="0.056" displayname="findByUsername: non-existent username returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByUsername_nonExistent_null()]"/>
+    <testcase name="findByRole_uwOfficer" classname="com.insurance.dao.UserDaoTest" time="0.061" displayname="findByRole: UW_OFFICER returns Anuj Sharma" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_uwOfficer()]"/>
+    <testcase name="findByRole_claimsOfficer" classname="com.insurance.dao.UserDaoTest" time="0.057" displayname="findByRole: CLAIMS_OFFICER returns Suheal Khan" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_claimsOfficer()]"/>
+    <testcase name="findByRole_customer" classname="com.insurance.dao.UserDaoTest" time="0.198" displayname="findByRole: CUSTOMER returns at least 3 customers" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_customer()]"/>
+    <testcase name="findByRole_agent" classname="com.insurance.dao.UserDaoTest" time="0.083" displayname="findByRole: AGENT returns Gowtham Ravi" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_agent()]"/>
+    <testcase name="findByRole_financeOfficer" classname="com.insurance.dao.UserDaoTest" time="0.054" displayname="findByRole: FINANCE_OFFICER returns Udbhav Mishra" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_financeOfficer()]"/>
+    <testcase name="findByRole_rm" classname="com.insurance.dao.UserDaoTest" time="0.05" displayname="findByRole: RM returns Hari Menon" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_rm()]"/>
+    <testcase name="findByRole_fieldOfficer" classname="com.insurance.dao.UserDaoTest" time="0.051" displayname="findByRole: FIELD_OFFICER returns Manav Singh" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_fieldOfficer()]"/>
+    <testcase name="findByRole_iamAdmin" classname="com.insurance.dao.UserDaoTest" time="0.053" displayname="findByRole: IAM_ADMIN returns Vignesh Kumar" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_iamAdmin()]"/>
+    <testcase name="findByRole_unknown_empty" classname="com.insurance.dao.UserDaoTest" time="0.057" displayname="findByRole: unknown role returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_unknown_empty()]"/>
+    <testcase name="save_allFieldsPersisted" classname="com.insurance.dao.UserDaoTest" time="0.077" displayname="save+findById: all fields persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_allFieldsPersisted()]">
+      <error>java.lang.RuntimeException: Error saving user: t1@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_allFieldsPersisted(UserDaoTest.java:225)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_defaultPasswordTrue" classname="com.insurance.dao.UserDaoTest" time="0.051" displayname="save+findById: isDefaultPassword=true persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_defaultPasswordTrue()]">
+      <error>java.lang.RuntimeException: Error saving user: t2@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_defaultPasswordTrue(UserDaoTest.java:245)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_staffAgeZero" classname="com.insurance.dao.UserDaoTest" time="0.054" displayname="save+findById: staff user age=0 persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_staffAgeZero()]">
+      <error>java.lang.RuntimeException: Error saving user: t3@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_staffAgeZero(UserDaoTest.java:260)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_duplicateId_throws" classname="com.insurance.dao.UserDaoTest" time="0.049" displayname="save: duplicate ID throws RuntimeException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_duplicateId_throws()]">
+      <error>java.lang.RuntimeException: Error saving user: t4@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_duplicateId_throws(UserDaoTest.java:275)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_nullableFields" classname="com.insurance.dao.UserDaoTest" time="0.069" displayname="save: null mobile and fullName accepted (nullable columns)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_nullableFields()]">
+      <error>java.lang.RuntimeException: Error saving user: t5@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_nullableFields(UserDaoTest.java:289)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_statusRoundTrip" classname="com.insurance.dao.UserDaoTest" time="0.07" displayname="update: status ACTIVE-&gt;INACTIVE-&gt;ACTIVE round-trip" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:update_statusRoundTrip()]">
+      <error>java.lang.RuntimeException: Error saving user: t6@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.update_statusRoundTrip(UserDaoTest.java:306)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_passwordHash" classname="com.insurance.dao.UserDaoTest" time="0.106" displayname="update: password hash change persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:update_passwordHash()]">
+      <error>java.lang.RuntimeException: Error saving user: t7@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.update_passwordHash(UserDaoTest.java:325)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_age" classname="com.insurance.dao.UserDaoTest" time="0.349" displayname="update: age change persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:update_age()]">
+      <error>java.lang.RuntimeException: Error saving user: t8@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.update_age(UserDaoTest.java:344)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByNameOrEmail_partialName" classname="com.insurance.dao.UserDaoTest" time="0.066" displayname="findByNameOrEmail: partial name match case-insensitive" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_partialName()]"/>
+    <testcase name="findByNameOrEmail_partialEmail" classname="com.insurance.dao.UserDaoTest" time="0.054" displayname="findByNameOrEmail: partial email match" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_partialEmail()]"/>
+    <testcase name="findByNameOrEmail_noMatch" classname="com.insurance.dao.UserDaoTest" time="0.05" displayname="findByNameOrEmail: no match returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_noMatch()]"/>
+    <testcase name="findFullNameById_shankar" classname="com.insurance.dao.UserDaoTest" time="0.056" displayname="findFullNameById: Shankar Rajan returns correct name" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_shankar()]"/>
+    <testcase name="findFullNameById_anuj" classname="com.insurance.dao.UserDaoTest" time="0.064" displayname="findFullNameById: UW officer Anuj Sharma" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_anuj()]"/>
+    <testcase name="findFullNameById_unknown_dash" classname="com.insurance.dao.UserDaoTest" time="0.055" displayname="findFullNameById: unknown ID returns dash" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_unknown_dash()]"/>
+    <testcase name="findFullNameById_null_dash" classname="com.insurance.dao.UserDaoTest" time="0.001" displayname="findFullNameById: null input returns dash" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_null_dash()]"/>
+    <testcase name="age_shankar33" classname="com.insurance.dao.UserDaoTest" time="0.052" displayname="age: Shankar Rajan has age=33 in seed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:age_shankar33()]"/>
+    <testcase name="age_rahul45" classname="com.insurance.dao.UserDaoTest" time="0.052" displayname="age: Rahul Mehta has age=45 in seed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:age_rahul45()]"/>
+    <testcase name="age_priya30" classname="com.insurance.dao.UserDaoTest" time="0.066" displayname="age: Priya Nair has age=30 in seed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:age_priya30()]"/>
+    <testcase name="delete_userGone" classname="com.insurance.dao.UserDaoTest" time="0.11" displayname="delete: user cannot be found after deletion" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:delete_userGone()]">
+      <error>java.lang.RuntimeException: Error saving user: t9@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.delete_userGone(UserDaoTest.java:439)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findAll_mandatoryFieldsNonNull" classname="com.insurance.dao.UserDaoTest" time="0.054" displayname="findAll: all users have non-null id, email, role" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findAll_mandatoryFieldsNonNull()]"/>
+    <testcase name="findByNameOrEmail_singleChar" classname="com.insurance.dao.UserDaoTest" time="0.053" displayname="findByRole: single-char search 'a' returns results" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_singleChar()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.service.PaymentServiceTest" time="4.397" displayname="PaymentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]">
+    <testcase name="findAll_atLeastTwo" classname="com.insurance.service.PaymentServiceTest" time="0.051" displayname="findAll: at least 2 seed payments, all have id and amount" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findAll_atLeastTwo()]"/>
+    <testcase name="findById_seedPayment_immutable" classname="com.insurance.service.PaymentServiceTest" time="0.053" displayname="findById: seed PAY-2026-000001 immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findById_seedPayment_immutable()]"/>
+    <testcase name="processPayment_createsPending" classname="com.insurance.service.PaymentServiceTest" time="0.179" displayname="processPayment: creates PENDING PREMIUM_RECEIVED payment" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_createsPending()]"/>
+    <testcase name="processPayment_nullCurrency_defaultsINR" classname="com.insurance.service.PaymentServiceTest" time="0.204" displayname="processPayment: null currency defaults to INR" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_nullCurrency_defaultsINR()]"/>
+    <testcase name="processPayment_nullPolicyId_throws" classname="com.insurance.service.PaymentServiceTest" time="0.003" displayname="processPayment: null policyId throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_nullPolicyId_throws()]"/>
+    <testcase name="processPayment_zeroAmount_throws" classname="com.insurance.service.PaymentServiceTest" time="0.003" displayname="processPayment: zero amount throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_zeroAmount_throws()]"/>
+    <testcase name="processPayment_negativeAmount_throws" classname="com.insurance.service.PaymentServiceTest" time="0.003" displayname="processPayment: negative amount throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_negativeAmount_throws()]"/>
+    <testcase name="completePayment_pendingToCompleted" classname="com.insurance.service.PaymentServiceTest" time="0.496" displayname="completePayment: PENDING -&gt; COMPLETED, paidAt stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completePayment_pendingToCompleted()]"/>
+    <testcase name="completePayment_alreadyCompleted_throws" classname="com.insurance.service.PaymentServiceTest" time="0.054" displayname="completePayment: already COMPLETED throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completePayment_alreadyCompleted_throws()]"/>
+    <testcase name="completePayment_nonExistent_throws" classname="com.insurance.service.PaymentServiceTest" time="0.055" displayname="completePayment: non-existent ID throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completePayment_nonExistent_throws()]"/>
+    <testcase name="processClaimPayout_createsPending" classname="com.insurance.service.PaymentServiceTest" time="0.151" displayname="processClaimPayout: creates PENDING CLAIM_PAYOUT linked to claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_createsPending()]"/>
+    <testcase name="processClaimPayout_nullPolicyId_throws" classname="com.insurance.service.PaymentServiceTest" time="0.001" displayname="processClaimPayout: null policyId throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_nullPolicyId_throws()]"/>
+    <testcase name="processClaimPayout_nullClaimId_throws" classname="com.insurance.service.PaymentServiceTest" time="0.001" displayname="processClaimPayout: null claimId throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_nullClaimId_throws()]"/>
+    <testcase name="processClaimPayout_nullCurrency_defaultsINR" classname="com.insurance.service.PaymentServiceTest" time="0.108" displayname="processClaimPayout: null currency defaults to INR" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_nullCurrency_defaultsINR()]"/>
+    <testcase name="completeClaimPayout_pendingToCompleted" classname="com.insurance.service.PaymentServiceTest" time="0.549" displayname="completeClaimPayout: PENDING -&gt; COMPLETED, paidAt stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_pendingToCompleted()]"/>
+    <testcase name="completeClaimPayout_nonExistent_throws" classname="com.insurance.service.PaymentServiceTest" time="0.194" displayname="completeClaimPayout: non-existent throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_nonExistent_throws()]"/>
+    <testcase name="completeClaimPayout_alreadyCompleted_throws" classname="com.insurance.service.PaymentServiceTest" time="0.278" displayname="completeClaimPayout: already COMPLETED throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_alreadyCompleted_throws()]"/>
+    <testcase name="completeClaimPayout_wrongType_throws" classname="com.insurance.service.PaymentServiceTest" time="0.171" displayname="completeClaimPayout: PREMIUM_RECEIVED payment throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_wrongType_throws()]"/>
+    <testcase name="autoCreateClaimPayout_idempotent" classname="com.insurance.service.PaymentServiceTest" time="0.226" displayname="autoCreateClaimPayout: creates PENDING payout, idempotent on second call" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:autoCreateClaimPayout_idempotent()]"/>
+    <testcase name="findByPolicyId_policy1_notEmpty" classname="com.insurance.service.PaymentServiceTest" time="0.054" displayname="findByPolicyId: seed policy 1 has at least 1 payment" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByPolicyId_policy1_notEmpty()]"/>
+    <testcase name="findByPolicyId_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.055" displayname="findByPolicyId: unknown policy returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByPolicyId_unknown_empty()]"/>
+    <testcase name="findByStatus_completed" classname="com.insurance.service.PaymentServiceTest" time="0.052" displayname="findByStatus: COMPLETED returns only COMPLETED payments" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByStatus_completed()]"/>
+    <testcase name="findByStatus_pending_includesNew" classname="com.insurance.service.PaymentServiceTest" time="0.179" displayname="findByStatus: PENDING includes freshly created payment" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByStatus_pending_includesNew()]"/>
+    <testcase name="findByStatus_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.196" displayname="findByStatus: unknown status returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByStatus_unknown_empty()]"/>
+    <testcase name="findByType_premiumReceived" classname="com.insurance.service.PaymentServiceTest" time="0.266" displayname="findByType: PREMIUM_RECEIVED returns only premiums" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByType_premiumReceived()]"/>
+    <testcase name="findByType_claimPayout_includesNew" classname="com.insurance.service.PaymentServiceTest" time="0.225" displayname="findByType: CLAIM_PAYOUT includes freshly created payout" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByType_claimPayout_includesNew()]"/>
+    <testcase name="findByType_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.075" displayname="findByType: unknown type returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByType_unknown_empty()]"/>
+    <testcase name="findByClaimId_returnsPayout" classname="com.insurance.service.PaymentServiceTest" time="0.255" displayname="findByClaimId: returns payout linked to claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByClaimId_returnsPayout()]"/>
+    <testcase name="findByClaimId_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.077" displayname="findByClaimId: unknown claim returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByClaimId_unknown_empty()]"/>
+    <testcase name="getFinanceSummary_keysAndValues" classname="com.insurance.service.PaymentServiceTest" time="0.161" displayname="getFinanceSummary: all required keys present, totalCredited &gt; 0" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:getFinanceSummary_keysAndValues()]">
+      <failure>
+        <expected>true</expected>
+        <actual>false</actual>
+        org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)&#13;
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)&#13;
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)&#13;
+	at com.insurance.service.PaymentServiceTest.getFinanceSummary_keysAndValues(PaymentServiceTest.java:337)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="com.insurance.service.PolicyServiceTest" time="10.771" displayname="PolicyServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]">
+    <testcase name="findAll_atLeastThree" classname="com.insurance.service.PolicyServiceTest" time="0.1" displayname="findAll: at least 3 seed policies exist" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findAll_atLeastThree()]"/>
+    <testcase name="findByPolicyNumber_seed" classname="com.insurance.service.PolicyServiceTest" time="0.063" displayname="findByPolicyNumber: POL-2026-000001 returns correct record" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findByPolicyNumber_seed()]"/>
+    <testcase name="createPolicy_lowRisk_quoted" classname="com.insurance.service.PolicyServiceTest" time="0.277" displayname="createPolicy: India/LEISURE/5days = LOW risk -&gt; QUOTED, premium positive" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_lowRisk_quoted()]"/>
+    <testcase name="createPolicy_mediumRisk_quoted" classname="com.insurance.service.PolicyServiceTest" time="0.173" displayname="createPolicy: FR/LEISURE/8days = MEDIUM risk (3.0-5.9) -&gt; QUOTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_mediumRisk_quoted()]"/>
+    <testcase name="createPolicy_highRisk_pendingUw" classname="com.insurance.service.PolicyServiceTest" time="0.438" displayname="createPolicy: US/BUSINESS/10days = HIGH risk (&gt;=6.0) -&gt; PENDING_UW" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_highRisk_pendingUw()]"/>
+    <testcase name="createPolicy_age65_addsOnePoint" classname="com.insurance.service.PolicyServiceTest" time="0.538" displayname="createPolicy: senior traveler age 65 adds +1.0 to risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_age65_addsOnePoint()]"/>
+    <testcase name="createPolicy_age75_addsOnePointFive" classname="com.insurance.service.PolicyServiceTest" time="0.334" displayname="createPolicy: very senior age 75 adds +1.5 -&gt; US+age75 = 5.5 MEDIUM" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_age75_addsOnePointFive()]"/>
+    <testcase name="createPolicy_age3_addsHalfPoint" classname="com.insurance.service.PolicyServiceTest" time="0.216" displayname="createPolicy: infant age 3 adds +0.5 -&gt; IN+age3 = 1.5 LOW" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_age3_addsHalfPoint()]"/>
+    <testcase name="createPolicy_multipleSeniors_ageLoadingCapped" classname="com.insurance.service.PolicyServiceTest" time="0.21" displayname="createPolicy: multiple seniors, age loading capped at +2.0" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_multipleSeniors_ageLoadingCapped()]"/>
+    <testcase name="createPolicy_businessPurpose_addsRisk" classname="com.insurance.service.PolicyServiceTest" time="0.497" displayname="createPolicy: BUSINESS purpose adds +1.5" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_businessPurpose_addsRisk()]"/>
+    <testcase name="createPolicy_over30Days_addsTwoRisk" classname="com.insurance.service.PolicyServiceTest" time="0.203" displayname="createPolicy: &gt;30 days adds +2.0 duration risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_over30Days_addsTwoRisk()]"/>
+    <testcase name="createPolicy_fiveTravelers_addsGroupRisk" classname="com.insurance.service.PolicyServiceTest" time="0.511" displayname="createPolicy: 5+ travelers adds +1.0 group risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_fiveTravelers_addsGroupRisk()]"/>
+    <testcase name="createPolicy_australia_mediumRisk" classname="com.insurance.service.PolicyServiceTest" time="0.214" displayname="createPolicy: AU destination adds +3.5 -&gt; MEDIUM risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_australia_mediumRisk()]"/>
+    <testcase name="activatePolicy_quotedToActive" classname="com.insurance.service.PolicyServiceTest" time="0.842" displayname="activatePolicy: QUOTED -&gt; ACTIVE, issueDate stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_quotedToActive()]"/>
+    <testcase name="activatePolicy_pendingUwToActive" classname="com.insurance.service.PolicyServiceTest" time="1.195" displayname="activatePolicy: PENDING_UW -&gt; ACTIVE (UW approval)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_pendingUwToActive()]"/>
+    <testcase name="activatePolicy_alreadyActive_throws" classname="com.insurance.service.PolicyServiceTest" time="0.592" displayname="activatePolicy: already ACTIVE throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_alreadyActive_throws()]"/>
+    <testcase name="activatePolicy_nonExistent_throws" classname="com.insurance.service.PolicyServiceTest" time="0.049" displayname="activatePolicy: non-existent ID throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_nonExistent_throws()]"/>
+    <testcase name="cancelPolicy_quotedToCancelled" classname="com.insurance.service.PolicyServiceTest" time="0.493" displayname="cancelPolicy: QUOTED -&gt; CANCELLED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_quotedToCancelled()]"/>
+    <testcase name="cancelPolicy_withReason" classname="com.insurance.service.PolicyServiceTest" time="0.63" displayname="cancelPolicy: with reason stores cancellationReason" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_withReason()]"/>
+    <testcase name="cancelPolicy_activeToCancelled" classname="com.insurance.service.PolicyServiceTest" time="0.693" displayname="cancelPolicy: ACTIVE -&gt; CANCELLED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_activeToCancelled()]"/>
+    <testcase name="cancelPolicy_alreadyCancelled_throws" classname="com.insurance.service.PolicyServiceTest" time="0.568" displayname="cancelPolicy: already CANCELLED throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_alreadyCancelled_throws()]"/>
+    <testcase name="saveAsQuote_remainsQuoted" classname="com.insurance.service.PolicyServiceTest" time="0.408" displayname="saveAsQuote: policy stays QUOTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:saveAsQuote_remainsQuoted()]"/>
+    <testcase name="findByCustomerId_shankar" classname="com.insurance.service.PolicyServiceTest" time="0.06" displayname="findByCustomerId: Shankar's policies all belong to him" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findByCustomerId_shankar()]"/>
+    <testcase name="findByStatus_pendingUw" classname="com.insurance.service.PolicyServiceTest" time="0.329" displayname="findByStatus: PENDING_UW policies all correct status" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findByStatus_pendingUw()]"/>
+    <testcase name="createPolicy_ppPlus_jpDestination" classname="com.insurance.service.PolicyServiceTest" time="0.24" displayname="createPolicy: PP_PLUS plan, JP destination -&gt; premium higher than BASIC" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_ppPlus_jpDestination()]"/>
+    <testcase name="createPolicy_ppPro_persisted" classname="com.insurance.service.PolicyServiceTest" time="0.258" displayname="createPolicy: PP_PRO plan persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_ppPro_persisted()]"/>
+    <testcase name="createPolicy_endBeforeStart_throws" classname="com.insurance.service.PolicyServiceTest" time="0.001" displayname="createPolicy: end date before start date throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_endBeforeStart_throws()]"/>
+    <testcase name="createPolicy_pastStart_throws" classname="com.insurance.service.PolicyServiceTest" time="0.003" displayname="createPolicy: past start date throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_pastStart_throws()]"/>
+    <testcase name="createPolicy_zeroTravelers_throws" classname="com.insurance.service.PolicyServiceTest" time="0.003" displayname="createPolicy: zero travelers throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_zeroTravelers_throws()]"/>
+    <testcase name="createPolicy_nullCustomer_throws" classname="com.insurance.service.PolicyServiceTest" time="0.002" displayname="createPolicy: null customerId throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_nullCustomer_throws()]"/>
+    <testcase name="createPolicy_premiumCalculation_inRange" classname="com.insurance.service.PolicyServiceTest" time="0.357" displayname="createPolicy: premium = BASE + DAILY*DAYS*TRAVELERS * (1 + risk%)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_premiumCalculation_inRange()]">
+      <failure>
+        <expected>true</expected>
+        <actual>false</actual>
+        org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)&#13;
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)&#13;
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_premiumCalculation_inRange(PolicyServiceTest.java:427)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+    <testcase name="createPolicy_startToday_succeeds" classname="com.insurance.service.PolicyServiceTest" time="0.25" displayname="createPolicy: start date = today succeeds" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_startToday_succeeds()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.service.UserServiceTest" time="1.765" displayname="UserServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]">
+    <testcase name="findAll_atLeastTen" classname="com.insurance.service.UserServiceTest" time="0.056" displayname="findAll: at least 10 seed users" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findAll_atLeastTen()]"/>
+    <testcase name="findByEmail_shankar" classname="com.insurance.service.UserServiceTest" time="0.057" displayname="findByEmail: Shankar Rajan found with correct role" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findByEmail_shankar()]"/>
+    <testcase name="findById_shankar" classname="com.insurance.service.UserServiceTest" time="0.231" displayname="findById: Shankar Rajan found with correct email" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findById_shankar()]"/>
+    <testcase name="findByEmail_nonExistent_null" classname="com.insurance.service.UserServiceTest" time="0.075" displayname="findByEmail: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findByEmail_nonExistent_null()]"/>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.service.UserServiceTest" time="0.052" displayname="findById: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="registerUser_customer_allFields" classname="com.insurance.service.UserServiceTest" time="0.106" displayname="registerUser: CUSTOMER with all fields -&gt; ACTIVE, id assigned" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_customer_allFields()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t1@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_customer_allFields(UserServiceTest.java:102)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_defaultPassword_true" classname="com.insurance.service.UserServiceTest" time="0.305" displayname="registerUser: isDefaultPassword=true persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_defaultPassword_true()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t2@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_defaultPassword_true(UserServiceTest.java:118)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_nullRole_defaultsCustomer" classname="com.insurance.service.UserServiceTest" time="0.278" displayname="registerUser: null role defaults to CUSTOMER" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_nullRole_defaultsCustomer()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t3@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_nullRole_defaultsCustomer(UserServiceTest.java:129)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_staffAgeZero" classname="com.insurance.service.UserServiceTest" time="0.104" displayname="registerUser: staff role FIELD_OFFICER with age=0 persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_staffAgeZero()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t4@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_staffAgeZero(UserServiceTest.java:138)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_findableByEmailAndId" classname="com.insurance.service.UserServiceTest" time="0.104" displayname="registerUser: newly created user findable by email and by id" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_findableByEmailAndId()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t5@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_findableByEmailAndId(UserServiceTest.java:148)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_duplicateEmail_throws" classname="com.insurance.service.UserServiceTest" time="0.059" displayname="registerUser: duplicate email throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_duplicateEmail_throws()]"/>
+    <testcase name="registerUser_nullEmail_throws" classname="com.insurance.service.UserServiceTest" time="0.001" displayname="registerUser: null email throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_nullEmail_throws()]"/>
+    <testcase name="registerUser_blankEmail_throws" classname="com.insurance.service.UserServiceTest" time="0.001" displayname="registerUser: blank email throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_blankEmail_throws()]"/>
+    <testcase name="registerUser_nullUsername_throws" classname="com.insurance.service.UserServiceTest" time="0.001" displayname="registerUser: null username throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_nullUsername_throws()]"/>
+    <testcase name="updateStatus_inactiveAndBack" classname="com.insurance.service.UserServiceTest" time="0.11" displayname="updateStatus: ACTIVE -&gt; INACTIVE -&gt; ACTIVE round-trip" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_inactiveAndBack()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t7@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.updateStatus_inactiveAndBack(UserServiceTest.java:194)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="updateStatus_suspendedAndLocked" classname="com.insurance.service.UserServiceTest" time="0.091" displayname="updateStatus: SUSPENDED and LOCKED statuses accepted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_suspendedAndLocked()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t8@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.updateStatus_suspendedAndLocked(UserServiceTest.java:206)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="updateStatus_invalid_throws" classname="com.insurance.service.UserServiceTest" time="0.053" displayname="updateStatus: invalid status throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_invalid_throws()]"/>
+    <testcase name="updateStatus_nonExistent_throws" classname="com.insurance.service.UserServiceTest" time="0.059" displayname="updateStatus: non-existent user throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_nonExistent_throws()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.service.ClaimServiceTest" time="17.846" displayname="ClaimServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]">
+    <testcase name="submitClaim_active_submitted" classname="com.insurance.service.ClaimServiceTest" time="0.236" displayname="submitClaim: ACTIVE policy -&gt; SUBMITTED, ref starts CLM-" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_active_submitted()]"/>
+    <testcase name="submitClaim_highValue_flagged" classname="com.insurance.service.ClaimServiceTest" time="0.278" displayname="submitClaim: amount &gt; 100000 flagged as HIGH VALUE" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_highValue_flagged()]"/>
+    <testcase name="submitClaim_exactlyAtBoundary_notHighValue" classname="com.insurance.service.ClaimServiceTest" time="0.513" displayname="submitClaim: at exactly 100000 is NOT high value (&gt; not &gt;=)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_exactlyAtBoundary_notHighValue()]"/>
+    <testcase name="submitClaim_oneAboveBoundary_isHighValue" classname="com.insurance.service.ClaimServiceTest" time="0.318" displayname="submitClaim: at 100001 IS high value" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_oneAboveBoundary_isHighValue()]"/>
+    <testcase name="submitClaim_baggageType" classname="com.insurance.service.ClaimServiceTest" time="0.617" displayname="submitClaim: BAGGAGE type on ACTIVE policy succeeds" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_baggageType()]"/>
+    <testcase name="submitClaim_secondCustomer" classname="com.insurance.service.ClaimServiceTest" time="0.391" displayname="submitClaim: second customer on second ACTIVE policy succeeds" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_secondCustomer()]"/>
+    <testcase name="updateStatus_toInReview" classname="com.insurance.service.ClaimServiceTest" time="0.642" displayname="updateStatus: SUBMITTED -&gt; IN_REVIEW persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:updateStatus_toInReview()]"/>
+    <testcase name="updateStatus_toPendingDocs" classname="com.insurance.service.ClaimServiceTest" time="0.762" displayname="updateStatus: SUBMITTED -&gt; PENDING_DOCS persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:updateStatus_toPendingDocs()]"/>
+    <testcase name="updateStatus_invalid_throws" classname="com.insurance.service.ClaimServiceTest" time="0.521" displayname="updateStatus: invalid status throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:updateStatus_invalid_throws()]"/>
+    <testcase name="rejectClaim_submitted_rejected" classname="com.insurance.service.ClaimServiceTest" time="0.487" displayname="rejectClaim: SUBMITTED -&gt; REJECTED with reason and decidedBy" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:rejectClaim_submitted_rejected()]"/>
+    <testcase name="rejectClaim_blankReason_throws" classname="com.insurance.service.ClaimServiceTest" time="0.335" displayname="rejectClaim: blank reason throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:rejectClaim_blankReason_throws()]"/>
+    <testcase name="rejectClaim_shortReason_throws" classname="com.insurance.service.ClaimServiceTest" time="0.854" displayname="rejectClaim: too-short reason throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:rejectClaim_shortReason_throws()]">
+      <failure>org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)&#13;
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)&#13;
+	at com.insurance.service.ClaimServiceTest.rejectClaim_shortReason_throws(ClaimServiceTest.java:225)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="approveClaim_exactAmount" classname="com.insurance.service.ClaimServiceTest" time="0.734" displayname="approveClaim: exact amount approved -&gt; APPROVED, payout auto-created" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_exactAmount()]"/>
+    <testcase name="approveClaim_partial" classname="com.insurance.service.ClaimServiceTest" time="0.823" displayname="approveClaim: partial settlement less than claimed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_partial()]"/>
+    <testcase name="approveClaim_zeroSettlement_allowed" classname="com.insurance.service.ClaimServiceTest" time="0.934" displayname="approveClaim: zero settlement is allowed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_zeroSettlement_allowed()]"/>
+    <testcase name="approveClaim_exceedsClaimed_throws" classname="com.insurance.service.ClaimServiceTest" time="0.604" displayname="approveClaim: settlement exceeding claimed amount throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_exceedsClaimed_throws()]"/>
+    <testcase name="approveClaim_negative_throws" classname="com.insurance.service.ClaimServiceTest" time="0.304" displayname="approveClaim: negative settlement throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_negative_throws()]"/>
+    <testcase name="assignFieldOfficer_setsAllFields" classname="com.insurance.service.ClaimServiceTest" time="0.524" displayname="assignFieldOfficer: -&gt; IN_REVIEW, officer set, fieldInvestigation=true" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:assignFieldOfficer_setsAllFields()]"/>
+    <testcase name="submitFieldFindings_fieldApproved" classname="com.insurance.service.ClaimServiceTest" time="0.806" displayname="submitFieldFindings: FIELD_APPROVED status set" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_fieldApproved()]"/>
+    <testcase name="submitFieldFindings_fieldRejected" classname="com.insurance.service.ClaimServiceTest" time="0.725" displayname="submitFieldFindings: FIELD_REJECTED status set" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_fieldRejected()]"/>
+    <testcase name="approve_afterFieldApproved" classname="com.insurance.service.ClaimServiceTest" time="0.986" displayname="approve FIELD_APPROVED claim: officer overrides recommendation -&gt; APPROVED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approve_afterFieldApproved()]"/>
+    <testcase name="reject_afterFieldApproved_overrides" classname="com.insurance.service.ClaimServiceTest" time="0.848" displayname="reject FIELD_APPROVED claim: officer overrides recommendation -&gt; REJECTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:reject_afterFieldApproved_overrides()]"/>
+    <testcase name="approve_afterFieldRejected_overrides" classname="com.insurance.service.ClaimServiceTest" time="1.158" displayname="approve FIELD_REJECTED claim: officer overrides -&gt; APPROVED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approve_afterFieldRejected_overrides()]"/>
+    <testcase name="approveClaim_blockedWhileInReview" classname="com.insurance.service.ClaimServiceTest" time="1.039" displayname="approveClaim: blocked while IN_REVIEW with field officer -&gt; throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_blockedWhileInReview()]"/>
+    <testcase name="submitFieldFindings_wrongOfficer_throws" classname="com.insurance.service.ClaimServiceTest" time="0.461" displayname="submitFieldFindings: wrong officer throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_wrongOfficer_throws()]"/>
+    <testcase name="submitFieldFindings_invalidOutcome_throws" classname="com.insurance.service.ClaimServiceTest" time="0.587" displayname="submitFieldFindings: invalid outcome throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_invalidOutcome_throws()]"/>
+    <testcase name="submitClaim_pendingUw_throws" classname="com.insurance.service.ClaimServiceTest" time="0.106" displayname="submitClaim: PENDING_UW policy throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_pendingUw_throws()]"/>
+    <testcase name="submitClaim_nonExistentPolicy_throws" classname="com.insurance.service.ClaimServiceTest" time="0.106" displayname="submitClaim: non-existent policy throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_nonExistentPolicy_throws()]"/>
+    <testcase name="submitClaim_zeroAmount_throws" classname="com.insurance.service.ClaimServiceTest" time="0.001" displayname="submitClaim: zero amount throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_zeroAmount_throws()]"/>
+    <testcase name="findAll_returnsAllClaims" classname="com.insurance.service.ClaimServiceTest" time="0.074" displayname="findAll: returns all claims including seed, all have non-null id" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findAll_returnsAllClaims()]"/>
+    <testcase name="findById_seedClaim" classname="com.insurance.service.ClaimServiceTest" time="0.068" displayname="findById: seed CLM-2026-000001 returns correct reference" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findById_seedClaim()]"/>
+    <testcase name="findByClaimReference_seed" classname="com.insurance.service.ClaimServiceTest" time="0.049" displayname="findByClaimReference: seed CLM-2026-000001 found" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByClaimReference_seed()]"/>
+    <testcase name="findByCustomerId_shankar" classname="com.insurance.service.ClaimServiceTest" time="0.055" displayname="findByCustomerId: Shankar's claims all belong to him" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByCustomerId_shankar()]"/>
+    <testcase name="findByStatus_approved" classname="com.insurance.service.ClaimServiceTest" time="0.065" displayname="findByStatus: APPROVED only returns APPROVED claims" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByStatus_approved()]"/>
+    <testcase name="findByAssignedOfficerId" classname="com.insurance.service.ClaimServiceTest" time="0.808" displayname="findByAssignedOfficerId: returns claims for field officer" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByAssignedOfficerId()]"/>
+  </testsuite>
+</testrun>
