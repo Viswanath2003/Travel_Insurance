@@ -1,0 +1,1888 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PolicyPilot_FINAL_v4.zip_expanded " project="PolicyPilot_FINAL_v4.zip_expanded" tests="197" started="197" failures="2" errors="86" ignored="0">
+  <testsuite name="com.insurance.dao.ClaimDaoTest" time="5.624" displayname="ClaimDaoTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]">
+    <testcase name="findAll_atLeastTwoClaims" classname="com.insurance.dao.ClaimDaoTest" time="0.178" displayname="findAll: returns at least 2 seed claims, mandatory fields non-null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findAll_atLeastTwoClaims()]"/>
+    <testcase name="findById_seedClaim1_immutable" classname="com.insurance.dao.ClaimDaoTest" time="0.082" displayname="findById: seed claim CLM-2026-000001 - immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findById_seedClaim1_immutable()]"/>
+    <testcase name="findById_seedClaim2_exists" classname="com.insurance.dao.ClaimDaoTest" time="0.09" displayname="findById: seed claim CLM-2026-000002 exists and has valid fields" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findById_seedClaim2_exists()]"/>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.dao.ClaimDaoTest" time="0.079" displayname="findById: non-existent ID returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="findByClaimReference_seed001" classname="com.insurance.dao.ClaimDaoTest" time="0.084" displayname="findByClaimReference: CLM-2026-000001 found" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByClaimReference_seed001()]"/>
+    <testcase name="findByClaimReference_nonExistent_null" classname="com.insurance.dao.ClaimDaoTest" time="0.081" displayname="findByClaimReference: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByClaimReference_nonExistent_null()]"/>
+    <testcase name="findByPolicyId_seedPolicy1" classname="com.insurance.dao.ClaimDaoTest" time="0.069" displayname="findByPolicyId: seed policy 1 has at least 1 claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByPolicyId_seedPolicy1()]"/>
+    <testcase name="findByPolicyId_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.074" displayname="findByPolicyId: unknown policy returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByPolicyId_unknown_empty()]"/>
+    <testcase name="findByCustomerId_shankar_notEmpty" classname="com.insurance.dao.ClaimDaoTest" time="0.069" displayname="findByCustomerId: Shankar has at least 1 claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByCustomerId_shankar_notEmpty()]"/>
+    <testcase name="findByCustomerId_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.067" displayname="findByCustomerId: unknown customer returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByCustomerId_unknown_empty()]"/>
+    <testcase name="findByStatus_approved_allApproved" classname="com.insurance.dao.ClaimDaoTest" time="0.086" displayname="findByStatus: APPROVED only returns APPROVED claims" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByStatus_approved_allApproved()]"/>
+    <testcase name="findByStatus_submitted_foundOwnClaim" classname="com.insurance.dao.ClaimDaoTest" time="0.272" displayname="findByStatus: test-owned SUBMITTED claim found" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByStatus_submitted_foundOwnClaim()]"/>
+    <testcase name="findByStatus_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.066" displayname="findByStatus: unknown status returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByStatus_unknown_empty()]"/>
+    <testcase name="save_allFieldsPersisted" classname="com.insurance.dao.ClaimDaoTest" time="0.24" displayname="save+findById: all fields persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_allFieldsPersisted()]"/>
+    <testcase name="save_duplicateId_throws" classname="com.insurance.dao.ClaimDaoTest" time="0.239" displayname="save: duplicate ID throws RuntimeException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_duplicateId_throws()]"/>
+    <testcase name="save_baggageType" classname="com.insurance.dao.ClaimDaoTest" time="0.518" displayname="save: BAGGAGE type claim persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_baggageType()]"/>
+    <testcase name="save_highValue_true" classname="com.insurance.dao.ClaimDaoTest" time="0.382" displayname="save: isHighValue=true persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_highValue_true()]"/>
+    <testcase name="save_minimumAmount" classname="com.insurance.dao.ClaimDaoTest" time="0.318" displayname="save: minimum amount 0.01 persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_minimumAmount()]"/>
+    <testcase name="update_inReviewWithOfficer" classname="com.insurance.dao.ClaimDaoTest" time="0.372" displayname="update: SUBMITTED -&gt; IN_REVIEW with assignedOfficerId and fieldInvestigation=true" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_inReviewWithOfficer()]"/>
+    <testcase name="update_fieldApproved" classname="com.insurance.dao.ClaimDaoTest" time="0.511" displayname="update: IN_REVIEW -&gt; FIELD_APPROVED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_fieldApproved()]"/>
+    <testcase name="update_approved_allDecisionFields" classname="com.insurance.dao.ClaimDaoTest" time="0.645" displayname="update: APPROVED with approvedAmount, decidedBy, decisionReason, decidedAt" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_approved_allDecisionFields()]"/>
+    <testcase name="update_rejected_reasonPersisted" classname="com.insurance.dao.ClaimDaoTest" time="0.385" displayname="update: REJECTED with reason persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:update_rejected_reasonPersisted()]"/>
+    <testcase name="findByAssignedOfficerId_fieldOfficer" classname="com.insurance.dao.ClaimDaoTest" time="0.211" displayname="findByAssignedOfficerId: returns assigned claims for field officer" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByAssignedOfficerId_fieldOfficer()]"/>
+    <testcase name="findByAssignedOfficerId_unknown_empty" classname="com.insurance.dao.ClaimDaoTest" time="0.054" displayname="findByAssignedOfficerId: unknown officer returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:findByAssignedOfficerId_unknown_empty()]"/>
+    <testcase name="save_secondCustomerClaim" classname="com.insurance.dao.ClaimDaoTest" time="0.428" displayname="save: second customer's claim on second policy persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.ClaimDaoTest]/[method:save_secondCustomerClaim()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.dao.PolicyDaoTest" time="1.693" displayname="PolicyDaoTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]">
+    <testcase name="findAll_atLeastThree" classname="com.insurance.dao.PolicyDaoTest" time="0.059" displayname="findAll: returns at least 3 seed policies, mandatory fields non-null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findAll_atLeastThree()]">
+      <error>java.lang.RuntimeException: Error finding all policies&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findAll(PolicyDaoImpl.java:55)&#13;
+	at com.insurance.dao.PolicyDaoTest.findAll_atLeastThree(PolicyDaoTest.java:86)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findAll(PolicyDaoImpl.java:53)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByPolicyNumber_seed001" classname="com.insurance.dao.PolicyDaoTest" time="0.053" displayname="findByPolicyNumber: POL-2026-000001 found with correct immutable fields" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByPolicyNumber_seed001()]">
+      <error>java.lang.RuntimeException: Error finding policy by number: POL-2026-000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByPolicyNumber(PolicyDaoImpl.java:41)&#13;
+	at com.insurance.dao.PolicyDaoTest.findByPolicyNumber_seed001(PolicyDaoTest.java:101)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByPolicyNumber(PolicyDaoImpl.java:38)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByPolicyNumber_nonExistent_null" classname="com.insurance.dao.PolicyDaoTest" time="0.071" displayname="findByPolicyNumber: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByPolicyNumber_nonExistent_null()]"/>
+    <testcase name="findById_seed002_immutableFields" classname="com.insurance.dao.PolicyDaoTest" time="0.057" displayname="findById: seed policy ab-000002 (Priya JP) - immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findById_seed002_immutableFields()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000002&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.dao.PolicyDaoTest.findById_seed002_immutableFields(PolicyDaoTest.java:124)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.dao.PolicyDaoTest" time="0.271" displayname="findById: non-existent ID returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="findByCustomerId_shankar_notEmpty" classname="com.insurance.dao.PolicyDaoTest" time="0.221" displayname="findByCustomerId: Shankar has at least 1 policy" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByCustomerId_shankar_notEmpty()]">
+      <error>java.lang.RuntimeException: Error finding policies for customer: a1000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByCustomerId(PolicyDaoImpl.java:71)&#13;
+	at com.insurance.dao.PolicyDaoTest.findByCustomerId_shankar_notEmpty(PolicyDaoTest.java:143)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByCustomerId(PolicyDaoImpl.java:68)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByCustomerId_priya_notEmpty" classname="com.insurance.dao.PolicyDaoTest" time="0.112" displayname="findByCustomerId: Priya has at least 1 policy" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByCustomerId_priya_notEmpty()]">
+      <error>java.lang.RuntimeException: Error finding policies for customer: a1000000-0000-0000-0000-000000000002&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByCustomerId(PolicyDaoImpl.java:71)&#13;
+	at com.insurance.dao.PolicyDaoTest.findByCustomerId_priya_notEmpty(PolicyDaoTest.java:151)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByCustomerId(PolicyDaoImpl.java:68)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByCustomerId_unknown_empty" classname="com.insurance.dao.PolicyDaoTest" time="0.058" displayname="findByCustomerId: unknown customer returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByCustomerId_unknown_empty()]"/>
+    <testcase name="findByStatus_active_allActive" classname="com.insurance.dao.PolicyDaoTest" time="0.052" displayname="findByStatus: ACTIVE policies all have status=ACTIVE" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_active_allActive()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.findByStatus_active_allActive(PolicyDaoTest.java:168)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByStatus_quoted_allQuoted" classname="com.insurance.dao.PolicyDaoTest" time="0.051" displayname="findByStatus: QUOTED policies all have status=QUOTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_quoted_allQuoted()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0002&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.findByStatus_quoted_allQuoted(PolicyDaoTest.java:182)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByStatus_pendingUw_allPendingUw" classname="com.insurance.dao.PolicyDaoTest" time="0.05" displayname="findByStatus: PENDING_UW policies all have status=PENDING_UW" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_pendingUw_allPendingUw()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0003&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.findByStatus_pendingUw_allPendingUw(PolicyDaoTest.java:196)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByStatus_unknown_empty" classname="com.insurance.dao.PolicyDaoTest" time="0.049" displayname="findByStatus: unknown status returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:findByStatus_unknown_empty()]"/>
+    <testcase name="save_allFieldsPersisted" classname="com.insurance.dao.PolicyDaoTest" time="0.063" displayname="save+findById: all fields persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_allFieldsPersisted()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0004&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.save_allFieldsPersisted(PolicyDaoTest.java:219)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_duplicateId_throws" classname="com.insurance.dao.PolicyDaoTest" time="0.052" displayname="save: duplicate policy ID throws RuntimeException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_duplicateId_throws()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0005&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.save_duplicateId_throws(PolicyDaoTest.java:243)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_quotedToActive" classname="com.insurance.dao.PolicyDaoTest" time="0.057" displayname="update: QUOTED -&gt; ACTIVE with issueDate stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_quotedToActive()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0006&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.update_quotedToActive(PolicyDaoTest.java:259)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_cancelWithReason" classname="com.insurance.dao.PolicyDaoTest" time="0.058" displayname="update: ACTIVE -&gt; CANCELLED with cancellationReason stored" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_cancelWithReason()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0007&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.update_cancelWithReason(PolicyDaoTest.java:278)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_riskChange" classname="com.insurance.dao.PolicyDaoTest" time="0.067" displayname="update: riskScore and riskLevel change persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_riskChange()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0008&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.update_riskChange(PolicyDaoTest.java:296)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_pendingUwToActive" classname="com.insurance.dao.PolicyDaoTest" time="0.085" displayname="update: PENDING_UW -&gt; ACTIVE (UW approval)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:update_pendingUwToActive()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0009&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.update_pendingUwToActive(PolicyDaoTest.java:316)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_ppPlusPlan" classname="com.insurance.dao.PolicyDaoTest" time="0.058" displayname="save: PP_PLUS plan ID persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_ppPlusPlan()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0010&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.save_ppPlusPlan(PolicyDaoTest.java:336)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_oneDayTrip" classname="com.insurance.dao.PolicyDaoTest" time="0.133" displayname="save: 1-day trip (startDate = endDate) persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.PolicyDaoTest]/[method:save_oneDayTrip()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-T-0011&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.dao.PolicyDaoTest.save_oneDayTrip(PolicyDaoTest.java:353)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="com.insurance.dao.UserDaoTest" time="2.628" displayname="UserDaoTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]">
+    <testcase name="findAll_hasAtLeastTenUsers" classname="com.insurance.dao.UserDaoTest" time="0.079" displayname="findAll: returns at least 10 seed users, all have id and role" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findAll_hasAtLeastTenUsers()]"/>
+    <testcase name="findById_shankarImmutableFields" classname="com.insurance.dao.UserDaoTest" time="0.062" displayname="findById: seed user Shankar Rajan - immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findById_shankarImmutableFields()]"/>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.dao.UserDaoTest" time="0.055" displayname="findById: non-existent ID returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="findByEmail_shankar" classname="com.insurance.dao.UserDaoTest" time="0.25" displayname="findByEmail: Shankar Rajan found by email" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByEmail_shankar()]"/>
+    <testcase name="findByEmail_nonExistent_null" classname="com.insurance.dao.UserDaoTest" time="0.112" displayname="findByEmail: non-existent email returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByEmail_nonExistent_null()]"/>
+    <testcase name="findByUsername_priya" classname="com.insurance.dao.UserDaoTest" time="0.075" displayname="findByUsername: priya_nair found and email matches" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByUsername_priya()]"/>
+    <testcase name="findByUsername_nonExistent_null" classname="com.insurance.dao.UserDaoTest" time="0.057" displayname="findByUsername: non-existent username returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByUsername_nonExistent_null()]"/>
+    <testcase name="findByRole_uwOfficer" classname="com.insurance.dao.UserDaoTest" time="0.057" displayname="findByRole: UW_OFFICER returns Anuj Sharma" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_uwOfficer()]"/>
+    <testcase name="findByRole_claimsOfficer" classname="com.insurance.dao.UserDaoTest" time="0.061" displayname="findByRole: CLAIMS_OFFICER returns Suheal Khan" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_claimsOfficer()]"/>
+    <testcase name="findByRole_customer" classname="com.insurance.dao.UserDaoTest" time="0.057" displayname="findByRole: CUSTOMER returns at least 3 customers" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_customer()]"/>
+    <testcase name="findByRole_agent" classname="com.insurance.dao.UserDaoTest" time="0.054" displayname="findByRole: AGENT returns Gowtham Ravi" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_agent()]"/>
+    <testcase name="findByRole_financeOfficer" classname="com.insurance.dao.UserDaoTest" time="0.069" displayname="findByRole: FINANCE_OFFICER returns Udbhav Mishra" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_financeOfficer()]"/>
+    <testcase name="findByRole_rm" classname="com.insurance.dao.UserDaoTest" time="0.091" displayname="findByRole: RM returns Hari Menon" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_rm()]"/>
+    <testcase name="findByRole_fieldOfficer" classname="com.insurance.dao.UserDaoTest" time="0.062" displayname="findByRole: FIELD_OFFICER returns Manav Singh" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_fieldOfficer()]"/>
+    <testcase name="findByRole_iamAdmin" classname="com.insurance.dao.UserDaoTest" time="0.057" displayname="findByRole: IAM_ADMIN returns Vignesh Kumar" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_iamAdmin()]"/>
+    <testcase name="findByRole_unknown_empty" classname="com.insurance.dao.UserDaoTest" time="0.052" displayname="findByRole: unknown role returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByRole_unknown_empty()]"/>
+    <testcase name="save_allFieldsPersisted" classname="com.insurance.dao.UserDaoTest" time="0.049" displayname="save+findById: all fields persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_allFieldsPersisted()]">
+      <error>java.lang.RuntimeException: Error saving user: t1@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_allFieldsPersisted(UserDaoTest.java:225)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_defaultPasswordTrue" classname="com.insurance.dao.UserDaoTest" time="0.063" displayname="save+findById: isDefaultPassword=true persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_defaultPasswordTrue()]">
+      <error>java.lang.RuntimeException: Error saving user: t2@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_defaultPasswordTrue(UserDaoTest.java:245)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_staffAgeZero" classname="com.insurance.dao.UserDaoTest" time="0.062" displayname="save+findById: staff user age=0 persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_staffAgeZero()]">
+      <error>java.lang.RuntimeException: Error saving user: t3@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_staffAgeZero(UserDaoTest.java:260)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_duplicateId_throws" classname="com.insurance.dao.UserDaoTest" time="0.052" displayname="save: duplicate ID throws RuntimeException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_duplicateId_throws()]">
+      <error>java.lang.RuntimeException: Error saving user: t4@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_duplicateId_throws(UserDaoTest.java:275)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="save_nullableFields" classname="com.insurance.dao.UserDaoTest" time="0.047" displayname="save: null mobile and fullName accepted (nullable columns)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:save_nullableFields()]">
+      <error>java.lang.RuntimeException: Error saving user: t5@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.save_nullableFields(UserDaoTest.java:289)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_statusRoundTrip" classname="com.insurance.dao.UserDaoTest" time="0.053" displayname="update: status ACTIVE-&gt;INACTIVE-&gt;ACTIVE round-trip" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:update_statusRoundTrip()]">
+      <error>java.lang.RuntimeException: Error saving user: t6@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.update_statusRoundTrip(UserDaoTest.java:306)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_passwordHash" classname="com.insurance.dao.UserDaoTest" time="0.111" displayname="update: password hash change persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:update_passwordHash()]">
+      <error>java.lang.RuntimeException: Error saving user: t7@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.update_passwordHash(UserDaoTest.java:325)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="update_age" classname="com.insurance.dao.UserDaoTest" time="0.126" displayname="update: age change persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:update_age()]">
+      <error>java.lang.RuntimeException: Error saving user: t8@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.update_age(UserDaoTest.java:344)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByNameOrEmail_partialName" classname="com.insurance.dao.UserDaoTest" time="0.061" displayname="findByNameOrEmail: partial name match case-insensitive" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_partialName()]"/>
+    <testcase name="findByNameOrEmail_partialEmail" classname="com.insurance.dao.UserDaoTest" time="0.065" displayname="findByNameOrEmail: partial email match" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_partialEmail()]"/>
+    <testcase name="findByNameOrEmail_noMatch" classname="com.insurance.dao.UserDaoTest" time="0.064" displayname="findByNameOrEmail: no match returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_noMatch()]"/>
+    <testcase name="findFullNameById_shankar" classname="com.insurance.dao.UserDaoTest" time="0.056" displayname="findFullNameById: Shankar Rajan returns correct name" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_shankar()]"/>
+    <testcase name="findFullNameById_anuj" classname="com.insurance.dao.UserDaoTest" time="0.057" displayname="findFullNameById: UW officer Anuj Sharma" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_anuj()]"/>
+    <testcase name="findFullNameById_unknown_dash" classname="com.insurance.dao.UserDaoTest" time="0.059" displayname="findFullNameById: unknown ID returns dash" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_unknown_dash()]"/>
+    <testcase name="findFullNameById_null_dash" classname="com.insurance.dao.UserDaoTest" time="0.001" displayname="findFullNameById: null input returns dash" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findFullNameById_null_dash()]"/>
+    <testcase name="age_shankar33" classname="com.insurance.dao.UserDaoTest" time="0.055" displayname="age: Shankar Rajan has age=33 in seed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:age_shankar33()]"/>
+    <testcase name="age_rahul45" classname="com.insurance.dao.UserDaoTest" time="0.069" displayname="age: Rahul Mehta has age=45 in seed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:age_rahul45()]"/>
+    <testcase name="age_priya30" classname="com.insurance.dao.UserDaoTest" time="0.066" displayname="age: Priya Nair has age=30 in seed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:age_priya30()]"/>
+    <testcase name="delete_userGone" classname="com.insurance.dao.UserDaoTest" time="0.107" displayname="delete: user cannot be found after deletion" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:delete_userGone()]">
+      <error>java.lang.RuntimeException: Error saving user: t9@userdao.test&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.dao.UserDaoTest.delete_userGone(UserDaoTest.java:439)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 4 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findAll_mandatoryFieldsNonNull" classname="com.insurance.dao.UserDaoTest" time="0.062" displayname="findAll: all users have non-null id, email, role" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findAll_mandatoryFieldsNonNull()]"/>
+    <testcase name="findByNameOrEmail_singleChar" classname="com.insurance.dao.UserDaoTest" time="0.067" displayname="findByRole: single-char search 'a' returns results" uniqueid="[engine:junit-jupiter]/[class:com.insurance.dao.UserDaoTest]/[method:findByNameOrEmail_singleChar()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.service.PaymentServiceTest" time="5.264" displayname="PaymentServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]">
+    <testcase name="findAll_atLeastTwo" classname="com.insurance.service.PaymentServiceTest" time="0.051" displayname="findAll: at least 2 seed payments, all have id and amount" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findAll_atLeastTwo()]"/>
+    <testcase name="findById_seedPayment_immutable" classname="com.insurance.service.PaymentServiceTest" time="0.05" displayname="findById: seed PAY-2026-000001 immutable fields correct" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findById_seedPayment_immutable()]"/>
+    <testcase name="processPayment_createsPending" classname="com.insurance.service.PaymentServiceTest" time="0.141" displayname="processPayment: creates PENDING PREMIUM_RECEIVED payment" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_createsPending()]"/>
+    <testcase name="processPayment_nullCurrency_defaultsINR" classname="com.insurance.service.PaymentServiceTest" time="0.202" displayname="processPayment: null currency defaults to INR" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_nullCurrency_defaultsINR()]"/>
+    <testcase name="processPayment_nullPolicyId_throws" classname="com.insurance.service.PaymentServiceTest" time="0.003" displayname="processPayment: null policyId throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_nullPolicyId_throws()]"/>
+    <testcase name="processPayment_zeroAmount_throws" classname="com.insurance.service.PaymentServiceTest" time="0.002" displayname="processPayment: zero amount throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_zeroAmount_throws()]"/>
+    <testcase name="processPayment_negativeAmount_throws" classname="com.insurance.service.PaymentServiceTest" time="0.002" displayname="processPayment: negative amount throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processPayment_negativeAmount_throws()]"/>
+    <testcase name="completePayment_pendingToCompleted" classname="com.insurance.service.PaymentServiceTest" time="0.369" displayname="completePayment: PENDING -&gt; COMPLETED, paidAt stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completePayment_pendingToCompleted()]"/>
+    <testcase name="completePayment_alreadyCompleted_throws" classname="com.insurance.service.PaymentServiceTest" time="0.051" displayname="completePayment: already COMPLETED throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completePayment_alreadyCompleted_throws()]"/>
+    <testcase name="completePayment_nonExistent_throws" classname="com.insurance.service.PaymentServiceTest" time="0.047" displayname="completePayment: non-existent ID throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completePayment_nonExistent_throws()]"/>
+    <testcase name="processClaimPayout_createsPending" classname="com.insurance.service.PaymentServiceTest" time="0.144" displayname="processClaimPayout: creates PENDING CLAIM_PAYOUT linked to claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_createsPending()]"/>
+    <testcase name="processClaimPayout_nullPolicyId_throws" classname="com.insurance.service.PaymentServiceTest" time="0.001" displayname="processClaimPayout: null policyId throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_nullPolicyId_throws()]"/>
+    <testcase name="processClaimPayout_nullClaimId_throws" classname="com.insurance.service.PaymentServiceTest" time="0.002" displayname="processClaimPayout: null claimId throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_nullClaimId_throws()]"/>
+    <testcase name="processClaimPayout_nullCurrency_defaultsINR" classname="com.insurance.service.PaymentServiceTest" time="0.207" displayname="processClaimPayout: null currency defaults to INR" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:processClaimPayout_nullCurrency_defaultsINR()]"/>
+    <testcase name="completeClaimPayout_pendingToCompleted" classname="com.insurance.service.PaymentServiceTest" time="0.589" displayname="completeClaimPayout: PENDING -&gt; COMPLETED, paidAt stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_pendingToCompleted()]"/>
+    <testcase name="completeClaimPayout_nonExistent_throws" classname="com.insurance.service.PaymentServiceTest" time="0.111" displayname="completeClaimPayout: non-existent throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_nonExistent_throws()]"/>
+    <testcase name="completeClaimPayout_alreadyCompleted_throws" classname="com.insurance.service.PaymentServiceTest" time="0.666" displayname="completeClaimPayout: already COMPLETED throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_alreadyCompleted_throws()]"/>
+    <testcase name="completeClaimPayout_wrongType_throws" classname="com.insurance.service.PaymentServiceTest" time="0.366" displayname="completeClaimPayout: PREMIUM_RECEIVED payment throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:completeClaimPayout_wrongType_throws()]"/>
+    <testcase name="autoCreateClaimPayout_idempotent" classname="com.insurance.service.PaymentServiceTest" time="0.417" displayname="autoCreateClaimPayout: creates PENDING payout, idempotent on second call" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:autoCreateClaimPayout_idempotent()]"/>
+    <testcase name="findByPolicyId_policy1_notEmpty" classname="com.insurance.service.PaymentServiceTest" time="0.129" displayname="findByPolicyId: seed policy 1 has at least 1 payment" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByPolicyId_policy1_notEmpty()]"/>
+    <testcase name="findByPolicyId_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.095" displayname="findByPolicyId: unknown policy returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByPolicyId_unknown_empty()]"/>
+    <testcase name="findByStatus_completed" classname="com.insurance.service.PaymentServiceTest" time="0.268" displayname="findByStatus: COMPLETED returns only COMPLETED payments" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByStatus_completed()]"/>
+    <testcase name="findByStatus_pending_includesNew" classname="com.insurance.service.PaymentServiceTest" time="0.198" displayname="findByStatus: PENDING includes freshly created payment" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByStatus_pending_includesNew()]"/>
+    <testcase name="findByStatus_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.052" displayname="findByStatus: unknown status returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByStatus_unknown_empty()]"/>
+    <testcase name="findByType_premiumReceived" classname="com.insurance.service.PaymentServiceTest" time="0.05" displayname="findByType: PREMIUM_RECEIVED returns only premiums" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByType_premiumReceived()]"/>
+    <testcase name="findByType_claimPayout_includesNew" classname="com.insurance.service.PaymentServiceTest" time="0.268" displayname="findByType: CLAIM_PAYOUT includes freshly created payout" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByType_claimPayout_includesNew()]"/>
+    <testcase name="findByType_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.061" displayname="findByType: unknown type returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByType_unknown_empty()]"/>
+    <testcase name="findByClaimId_returnsPayout" classname="com.insurance.service.PaymentServiceTest" time="0.458" displayname="findByClaimId: returns payout linked to claim" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByClaimId_returnsPayout()]"/>
+    <testcase name="findByClaimId_unknown_empty" classname="com.insurance.service.PaymentServiceTest" time="0.096" displayname="findByClaimId: unknown claim returns empty list" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:findByClaimId_unknown_empty()]"/>
+    <testcase name="getFinanceSummary_keysAndValues" classname="com.insurance.service.PaymentServiceTest" time="0.144" displayname="getFinanceSummary: all required keys present, totalCredited &gt; 0" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PaymentServiceTest]/[method:getFinanceSummary_keysAndValues()]">
+      <failure>
+        <expected>true</expected>
+        <actual>false</actual>
+        org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)&#13;
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)&#13;
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)&#13;
+	at com.insurance.service.PaymentServiceTest.getFinanceSummary_keysAndValues(PaymentServiceTest.java:337)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="com.insurance.service.PolicyServiceTest" time="3.4" displayname="PolicyServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]">
+    <testcase name="findAll_atLeastThree" classname="com.insurance.service.PolicyServiceTest" time="0.055" displayname="findAll: at least 3 seed policies exist" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findAll_atLeastThree()]">
+      <error>java.lang.RuntimeException: Error finding all policies&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findAll(PolicyDaoImpl.java:55)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.findAll(PolicyServiceImpl.java:132)&#13;
+	at com.insurance.service.PolicyServiceTest.findAll_atLeastThree(PolicyServiceTest.java:60)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findAll(PolicyDaoImpl.java:53)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByPolicyNumber_seed" classname="com.insurance.service.PolicyServiceTest" time="0.077" displayname="findByPolicyNumber: POL-2026-000001 returns correct record" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findByPolicyNumber_seed()]">
+      <error>java.lang.RuntimeException: Error finding policy by number: POL-2026-000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByPolicyNumber(PolicyDaoImpl.java:41)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.findByPolicyNumber(PolicyServiceImpl.java:122)&#13;
+	at com.insurance.service.PolicyServiceTest.findByPolicyNumber_seed(PolicyServiceTest.java:71)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByPolicyNumber(PolicyDaoImpl.java:38)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_lowRisk_quoted" classname="com.insurance.service.PolicyServiceTest" time="0.142" displayname="createPolicy: India/LEISURE/5days = LOW risk -&gt; QUOTED, premium positive" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_lowRisk_quoted()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-647837&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_lowRisk_quoted(PolicyServiceTest.java:83)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_mediumRisk_quoted" classname="com.insurance.service.PolicyServiceTest" time="0.119" displayname="createPolicy: FR/LEISURE/8days = MEDIUM risk (3.0-5.9) -&gt; QUOTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_mediumRisk_quoted()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-264909&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_mediumRisk_quoted(PolicyServiceTest.java:100)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_highRisk_pendingUw" classname="com.insurance.service.PolicyServiceTest" time="0.129" displayname="createPolicy: US/BUSINESS/10days = HIGH risk (&gt;=6.0) -&gt; PENDING_UW" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_highRisk_pendingUw()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-456479&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_highRisk_pendingUw(PolicyServiceTest.java:114)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_age65_addsOnePoint" classname="com.insurance.service.PolicyServiceTest" time="0.124" displayname="createPolicy: senior traveler age 65 adds +1.0 to risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_age65_addsOnePoint()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-868328&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_age65_addsOnePoint(PolicyServiceTest.java:128)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_age75_addsOnePointFive" classname="com.insurance.service.PolicyServiceTest" time="0.125" displayname="createPolicy: very senior age 75 adds +1.5 -&gt; US+age75 = 5.5 MEDIUM" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_age75_addsOnePointFive()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-496453&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_age75_addsOnePointFive(PolicyServiceTest.java:140)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_age3_addsHalfPoint" classname="com.insurance.service.PolicyServiceTest" time="0.111" displayname="createPolicy: infant age 3 adds +0.5 -&gt; IN+age3 = 1.5 LOW" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_age3_addsHalfPoint()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-507574&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_age3_addsHalfPoint(PolicyServiceTest.java:153)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_multipleSeniors_ageLoadingCapped" classname="com.insurance.service.PolicyServiceTest" time="0.122" displayname="createPolicy: multiple seniors, age loading capped at +2.0" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_multipleSeniors_ageLoadingCapped()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-048680&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_multipleSeniors_ageLoadingCapped(PolicyServiceTest.java:165)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_businessPurpose_addsRisk" classname="com.insurance.service.PolicyServiceTest" time="0.109" displayname="createPolicy: BUSINESS purpose adds +1.5" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_businessPurpose_addsRisk()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-648683&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_businessPurpose_addsRisk(PolicyServiceTest.java:178)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_over30Days_addsTwoRisk" classname="com.insurance.service.PolicyServiceTest" time="0.132" displayname="createPolicy: &gt;30 days adds +2.0 duration risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_over30Days_addsTwoRisk()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-735108&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_over30Days_addsTwoRisk(PolicyServiceTest.java:190)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_fiveTravelers_addsGroupRisk" classname="com.insurance.service.PolicyServiceTest" time="0.124" displayname="createPolicy: 5+ travelers adds +1.0 group risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_fiveTravelers_addsGroupRisk()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-865694&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_fiveTravelers_addsGroupRisk(PolicyServiceTest.java:202)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_australia_mediumRisk" classname="com.insurance.service.PolicyServiceTest" time="0.242" displayname="createPolicy: AU destination adds +3.5 -&gt; MEDIUM risk" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_australia_mediumRisk()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-652099&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_australia_mediumRisk(PolicyServiceTest.java:213)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="activatePolicy_quotedToActive" classname="com.insurance.service.PolicyServiceTest" time="0.128" displayname="activatePolicy: QUOTED -&gt; ACTIVE, issueDate stamped" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_quotedToActive()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-935308&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.activatePolicy_quotedToActive(PolicyServiceTest.java:226)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="activatePolicy_pendingUwToActive" classname="com.insurance.service.PolicyServiceTest" time="0.099" displayname="activatePolicy: PENDING_UW -&gt; ACTIVE (UW approval)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_pendingUwToActive()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-896380&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.activatePolicy_pendingUwToActive(PolicyServiceTest.java:240)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="activatePolicy_alreadyActive_throws" classname="com.insurance.service.PolicyServiceTest" time="0.108" displayname="activatePolicy: already ACTIVE throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_alreadyActive_throws()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-723808&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.activatePolicy_alreadyActive_throws(PolicyServiceTest.java:253)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="activatePolicy_nonExistent_throws" classname="com.insurance.service.PolicyServiceTest" time="0.064" displayname="activatePolicy: non-existent ID throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:activatePolicy_nonExistent_throws()]"/>
+    <testcase name="cancelPolicy_quotedToCancelled" classname="com.insurance.service.PolicyServiceTest" time="0.102" displayname="cancelPolicy: QUOTED -&gt; CANCELLED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_quotedToCancelled()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-792568&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.cancelPolicy_quotedToCancelled(PolicyServiceTest.java:273)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="cancelPolicy_withReason" classname="com.insurance.service.PolicyServiceTest" time="0.113" displayname="cancelPolicy: with reason stores cancellationReason" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_withReason()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-867165&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.cancelPolicy_withReason(PolicyServiceTest.java:284)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="cancelPolicy_activeToCancelled" classname="com.insurance.service.PolicyServiceTest" time="0.114" displayname="cancelPolicy: ACTIVE -&gt; CANCELLED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_activeToCancelled()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-788206&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.cancelPolicy_activeToCancelled(PolicyServiceTest.java:297)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="cancelPolicy_alreadyCancelled_throws" classname="com.insurance.service.PolicyServiceTest" time="0.107" displayname="cancelPolicy: already CANCELLED throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:cancelPolicy_alreadyCancelled_throws()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-950899&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.cancelPolicy_alreadyCancelled_throws(PolicyServiceTest.java:309)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="saveAsQuote_remainsQuoted" classname="com.insurance.service.PolicyServiceTest" time="0.104" displayname="saveAsQuote: policy stays QUOTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:saveAsQuote_remainsQuoted()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-570867&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.saveAsQuote_remainsQuoted(PolicyServiceTest.java:322)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByCustomerId_shankar" classname="com.insurance.service.PolicyServiceTest" time="0.05" displayname="findByCustomerId: Shankar's policies all belong to him" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findByCustomerId_shankar()]">
+      <error>java.lang.RuntimeException: Error finding policies for customer: a1000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByCustomerId(PolicyDaoImpl.java:71)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.findByCustomerId(PolicyServiceImpl.java:127)&#13;
+	at com.insurance.service.PolicyServiceTest.findByCustomerId_shankar(PolicyServiceTest.java:334)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findByCustomerId(PolicyDaoImpl.java:68)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="findByStatus_pendingUw" classname="com.insurance.service.PolicyServiceTest" time="0.118" displayname="findByStatus: PENDING_UW policies all correct status" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:findByStatus_pendingUw()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-586890&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.findByStatus_pendingUw(PolicyServiceTest.java:343)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_ppPlus_jpDestination" classname="com.insurance.service.PolicyServiceTest" time="0.111" displayname="createPolicy: PP_PLUS plan, JP destination -&gt; premium higher than BASIC" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_ppPlus_jpDestination()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-373800&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_ppPlus_jpDestination(PolicyServiceTest.java:357)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_ppPro_persisted" classname="com.insurance.service.PolicyServiceTest" time="0.281" displayname="createPolicy: PP_PRO plan persisted correctly" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_ppPro_persisted()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-577970&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_ppPro_persisted(PolicyServiceTest.java:370)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_endBeforeStart_throws" classname="com.insurance.service.PolicyServiceTest" time="0.003" displayname="createPolicy: end date before start date throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_endBeforeStart_throws()]"/>
+    <testcase name="createPolicy_pastStart_throws" classname="com.insurance.service.PolicyServiceTest" time="0.004" displayname="createPolicy: past start date throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_pastStart_throws()]"/>
+    <testcase name="createPolicy_zeroTravelers_throws" classname="com.insurance.service.PolicyServiceTest" time="0.003" displayname="createPolicy: zero travelers throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_zeroTravelers_throws()]"/>
+    <testcase name="createPolicy_nullCustomer_throws" classname="com.insurance.service.PolicyServiceTest" time="0.002" displayname="createPolicy: null customerId throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_nullCustomer_throws()]"/>
+    <testcase name="createPolicy_premiumCalculation_inRange" classname="com.insurance.service.PolicyServiceTest" time="0.14" displayname="createPolicy: premium = BASE + DAILY*DAYS*TRAVELERS * (1 + risk%)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_premiumCalculation_inRange()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-579088&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createAndGet(PolicyServiceTest.java:48)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_premiumCalculation_inRange(PolicyServiceTest.java:424)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 6 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="createPolicy_startToday_succeeds" classname="com.insurance.service.PolicyServiceTest" time="0.115" displayname="createPolicy: start date = today succeeds" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.PolicyServiceTest]/[method:createPolicy_startToday_succeeds()]">
+      <error>java.lang.RuntimeException: Error saving policy: POL-2026-016707&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:144)&#13;
+	at com.insurance.service.impl.PolicyServiceImpl.createPolicy(PolicyServiceImpl.java:111)&#13;
+	at com.insurance.service.PolicyServiceTest.createPolicy_startToday_succeeds(PolicyServiceTest.java:439)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "cancellation_reason" of relation "policies" does not exist
+  Position: 309&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.save(PolicyDaoImpl.java:142)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="com.insurance.service.UserServiceTest" time="1.332" displayname="UserServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]">
+    <testcase name="findAll_atLeastTen" classname="com.insurance.service.UserServiceTest" time="0.052" displayname="findAll: at least 10 seed users" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findAll_atLeastTen()]"/>
+    <testcase name="findByEmail_shankar" classname="com.insurance.service.UserServiceTest" time="0.077" displayname="findByEmail: Shankar Rajan found with correct role" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findByEmail_shankar()]"/>
+    <testcase name="findById_shankar" classname="com.insurance.service.UserServiceTest" time="0.054" displayname="findById: Shankar Rajan found with correct email" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findById_shankar()]"/>
+    <testcase name="findByEmail_nonExistent_null" classname="com.insurance.service.UserServiceTest" time="0.049" displayname="findByEmail: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findByEmail_nonExistent_null()]"/>
+    <testcase name="findById_nonExistent_null" classname="com.insurance.service.UserServiceTest" time="0.05" displayname="findById: non-existent returns null" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:findById_nonExistent_null()]"/>
+    <testcase name="registerUser_customer_allFields" classname="com.insurance.service.UserServiceTest" time="0.107" displayname="registerUser: CUSTOMER with all fields -&gt; ACTIVE, id assigned" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_customer_allFields()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t1@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_customer_allFields(UserServiceTest.java:102)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_defaultPassword_true" classname="com.insurance.service.UserServiceTest" time="0.115" displayname="registerUser: isDefaultPassword=true persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_defaultPassword_true()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t2@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_defaultPassword_true(UserServiceTest.java:118)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_nullRole_defaultsCustomer" classname="com.insurance.service.UserServiceTest" time="0.097" displayname="registerUser: null role defaults to CUSTOMER" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_nullRole_defaultsCustomer()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t3@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_nullRole_defaultsCustomer(UserServiceTest.java:129)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_staffAgeZero" classname="com.insurance.service.UserServiceTest" time="0.111" displayname="registerUser: staff role FIELD_OFFICER with age=0 persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_staffAgeZero()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t4@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_staffAgeZero(UserServiceTest.java:138)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_findableByEmailAndId" classname="com.insurance.service.UserServiceTest" time="0.115" displayname="registerUser: newly created user findable by email and by id" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_findableByEmailAndId()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t5@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.registerUser_findableByEmailAndId(UserServiceTest.java:148)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="registerUser_duplicateEmail_throws" classname="com.insurance.service.UserServiceTest" time="0.119" displayname="registerUser: duplicate email throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_duplicateEmail_throws()]"/>
+    <testcase name="registerUser_nullEmail_throws" classname="com.insurance.service.UserServiceTest" time="0.001" displayname="registerUser: null email throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_nullEmail_throws()]"/>
+    <testcase name="registerUser_blankEmail_throws" classname="com.insurance.service.UserServiceTest" time="0.003" displayname="registerUser: blank email throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_blankEmail_throws()]"/>
+    <testcase name="registerUser_nullUsername_throws" classname="com.insurance.service.UserServiceTest" time="0.002" displayname="registerUser: null username throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:registerUser_nullUsername_throws()]"/>
+    <testcase name="updateStatus_inactiveAndBack" classname="com.insurance.service.UserServiceTest" time="0.1" displayname="updateStatus: ACTIVE -&gt; INACTIVE -&gt; ACTIVE round-trip" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_inactiveAndBack()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t7@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.updateStatus_inactiveAndBack(UserServiceTest.java:194)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="updateStatus_suspendedAndLocked" classname="com.insurance.service.UserServiceTest" time="0.126" displayname="updateStatus: SUSPENDED and LOCKED statuses accepted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_suspendedAndLocked()]">
+      <error>java.lang.RuntimeException: Error saving user: us.t8@test.invalid&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:159)&#13;
+	at com.insurance.service.impl.UserServiceImpl.registerUser(UserServiceImpl.java:54)&#13;
+	at com.insurance.service.UserServiceTest.updateStatus_suspendedAndLocked(UserServiceTest.java:206)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: ERROR: column "is_default_password" of relation "users" does not exist
+  Position: 94&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)&#13;
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)&#13;
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)&#13;
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)&#13;
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)&#13;
+	at com.insurance.dao.impl.UserDaoImpl.save(UserDaoImpl.java:157)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="updateStatus_invalid_throws" classname="com.insurance.service.UserServiceTest" time="0.098" displayname="updateStatus: invalid status throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_invalid_throws()]"/>
+    <testcase name="updateStatus_nonExistent_throws" classname="com.insurance.service.UserServiceTest" time="0.049" displayname="updateStatus: non-existent user throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.UserServiceTest]/[method:updateStatus_nonExistent_throws()]"/>
+  </testsuite>
+  <testsuite name="com.insurance.service.ClaimServiceTest" time="2.438" displayname="ClaimServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]">
+    <testcase name="submitClaim_active_submitted" classname="com.insurance.service.ClaimServiceTest" time="0.05" displayname="submitClaim: ACTIVE policy -&gt; SUBMITTED, ref starts CLM-" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_active_submitted()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitClaim_active_submitted(ClaimServiceTest.java:68)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitClaim_highValue_flagged" classname="com.insurance.service.ClaimServiceTest" time="0.049" displayname="submitClaim: amount &gt; 100000 flagged as HIGH VALUE" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_highValue_flagged()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitClaim_highValue_flagged(ClaimServiceTest.java:87)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitClaim_exactlyAtBoundary_notHighValue" classname="com.insurance.service.ClaimServiceTest" time="0.052" displayname="submitClaim: at exactly 100000 is NOT high value (&gt; not &gt;=)" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_exactlyAtBoundary_notHighValue()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitClaim_exactlyAtBoundary_notHighValue(ClaimServiceTest.java:99)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitClaim_oneAboveBoundary_isHighValue" classname="com.insurance.service.ClaimServiceTest" time="0.058" displayname="submitClaim: at 100001 IS high value" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_oneAboveBoundary_isHighValue()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitClaim_oneAboveBoundary_isHighValue(ClaimServiceTest.java:111)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitClaim_baggageType" classname="com.insurance.service.ClaimServiceTest" time="0.096" displayname="submitClaim: BAGGAGE type on ACTIVE policy succeeds" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_baggageType()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitClaim_baggageType(ClaimServiceTest.java:123)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitClaim_secondCustomer" classname="com.insurance.service.ClaimServiceTest" time="0.074" displayname="submitClaim: second customer on second ACTIVE policy succeeds" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_secondCustomer()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000002&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitClaim_secondCustomer(ClaimServiceTest.java:136)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="updateStatus_toInReview" classname="com.insurance.service.ClaimServiceTest" time="0.056" displayname="updateStatus: SUBMITTED -&gt; IN_REVIEW persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:updateStatus_toInReview()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.updateStatus_toInReview(ClaimServiceTest.java:152)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="updateStatus_toPendingDocs" classname="com.insurance.service.ClaimServiceTest" time="0.064" displayname="updateStatus: SUBMITTED -&gt; PENDING_DOCS persisted" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:updateStatus_toPendingDocs()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.updateStatus_toPendingDocs(ClaimServiceTest.java:165)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="updateStatus_invalid_throws" classname="com.insurance.service.ClaimServiceTest" time="0.069" displayname="updateStatus: invalid status throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:updateStatus_invalid_throws()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.updateStatus_invalid_throws(ClaimServiceTest.java:178)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="rejectClaim_submitted_rejected" classname="com.insurance.service.ClaimServiceTest" time="0.069" displayname="rejectClaim: SUBMITTED -&gt; REJECTED with reason and decidedBy" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:rejectClaim_submitted_rejected()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.rejectClaim_submitted_rejected(ClaimServiceTest.java:193)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="rejectClaim_blankReason_throws" classname="com.insurance.service.ClaimServiceTest" time="0.058" displayname="rejectClaim: blank reason throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:rejectClaim_blankReason_throws()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.rejectClaim_blankReason_throws(ClaimServiceTest.java:210)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="rejectClaim_shortReason_throws" classname="com.insurance.service.ClaimServiceTest" time="0.05" displayname="rejectClaim: too-short reason throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:rejectClaim_shortReason_throws()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.rejectClaim_shortReason_throws(ClaimServiceTest.java:223)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approveClaim_exactAmount" classname="com.insurance.service.ClaimServiceTest" time="0.052" displayname="approveClaim: exact amount approved -&gt; APPROVED, payout auto-created" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_exactAmount()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approveClaim_exactAmount(ClaimServiceTest.java:238)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approveClaim_partial" classname="com.insurance.service.ClaimServiceTest" time="0.057" displayname="approveClaim: partial settlement less than claimed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_partial()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approveClaim_partial(ClaimServiceTest.java:255)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approveClaim_zeroSettlement_allowed" classname="com.insurance.service.ClaimServiceTest" time="0.075" displayname="approveClaim: zero settlement is allowed" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_zeroSettlement_allowed()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approveClaim_zeroSettlement_allowed(ClaimServiceTest.java:270)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approveClaim_exceedsClaimed_throws" classname="com.insurance.service.ClaimServiceTest" time="0.052" displayname="approveClaim: settlement exceeding claimed amount throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_exceedsClaimed_throws()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approveClaim_exceedsClaimed_throws(ClaimServiceTest.java:283)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approveClaim_negative_throws" classname="com.insurance.service.ClaimServiceTest" time="0.051" displayname="approveClaim: negative settlement throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_negative_throws()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approveClaim_negative_throws(ClaimServiceTest.java:296)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="assignFieldOfficer_setsAllFields" classname="com.insurance.service.ClaimServiceTest" time="0.05" displayname="assignFieldOfficer: -&gt; IN_REVIEW, officer set, fieldInvestigation=true" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:assignFieldOfficer_setsAllFields()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.assignFieldOfficer_setsAllFields(ClaimServiceTest.java:311)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitFieldFindings_fieldApproved" classname="com.insurance.service.ClaimServiceTest" time="0.065" displayname="submitFieldFindings: FIELD_APPROVED status set" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_fieldApproved()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitFieldFindings_fieldApproved(ClaimServiceTest.java:327)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitFieldFindings_fieldRejected" classname="com.insurance.service.ClaimServiceTest" time="0.059" displayname="submitFieldFindings: FIELD_REJECTED status set" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_fieldRejected()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitFieldFindings_fieldRejected(ClaimServiceTest.java:341)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approve_afterFieldApproved" classname="com.insurance.service.ClaimServiceTest" time="0.05" displayname="approve FIELD_APPROVED claim: officer overrides recommendation -&gt; APPROVED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approve_afterFieldApproved()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approve_afterFieldApproved(ClaimServiceTest.java:355)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="reject_afterFieldApproved_overrides" classname="com.insurance.service.ClaimServiceTest" time="0.051" displayname="reject FIELD_APPROVED claim: officer overrides recommendation -&gt; REJECTED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:reject_afterFieldApproved_overrides()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.reject_afterFieldApproved_overrides(ClaimServiceTest.java:370)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approve_afterFieldRejected_overrides" classname="com.insurance.service.ClaimServiceTest" time="0.052" displayname="approve FIELD_REJECTED claim: officer overrides -&gt; APPROVED" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approve_afterFieldRejected_overrides()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approve_afterFieldRejected_overrides(ClaimServiceTest.java:385)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="approveClaim_blockedWhileInReview" classname="com.insurance.service.ClaimServiceTest" time="0.062" displayname="approveClaim: blocked while IN_REVIEW with field officer -&gt; throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:approveClaim_blockedWhileInReview()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.approveClaim_blockedWhileInReview(ClaimServiceTest.java:400)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitFieldFindings_wrongOfficer_throws" classname="com.insurance.service.ClaimServiceTest" time="0.07" displayname="submitFieldFindings: wrong officer throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_wrongOfficer_throws()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitFieldFindings_wrongOfficer_throws(ClaimServiceTest.java:414)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitFieldFindings_invalidOutcome_throws" classname="com.insurance.service.ClaimServiceTest" time="0.16" displayname="submitFieldFindings: invalid outcome throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitFieldFindings_invalidOutcome_throws()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.submitFieldFindings_invalidOutcome_throws(ClaimServiceTest.java:428)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="submitClaim_pendingUw_throws" classname="com.insurance.service.ClaimServiceTest" time="0.173" displayname="submitClaim: PENDING_UW policy throws IllegalStateException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_pendingUw_throws()]">
+      <failure>
+        <expected>class java.lang.IllegalStateException</expected>
+        <actual>class java.lang.RuntimeException</actual>
+        org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: &lt;java.lang.IllegalStateException&gt; but was: &lt;java.lang.RuntimeException&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)&#13;
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)&#13;
+	at com.insurance.service.ClaimServiceTest.submitClaim_pendingUw_throws(ClaimServiceTest.java:444)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000003&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.lambda$10(ClaimServiceTest.java:444)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)&#13;
+	... 6 more&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 9 more&#13;
+&#13;
+
+      </failure>
+    </testcase>
+    <testcase name="submitClaim_nonExistentPolicy_throws" classname="com.insurance.service.ClaimServiceTest" time="0.052" displayname="submitClaim: non-existent policy throws" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_nonExistentPolicy_throws()]"/>
+    <testcase name="submitClaim_zeroAmount_throws" classname="com.insurance.service.ClaimServiceTest" time="0.001" displayname="submitClaim: zero amount throws IllegalArgumentException" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:submitClaim_zeroAmount_throws()]"/>
+    <testcase name="findAll_returnsAllClaims" classname="com.insurance.service.ClaimServiceTest" time="0.254" displayname="findAll: returns all claims including seed, all have non-null id" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findAll_returnsAllClaims()]"/>
+    <testcase name="findById_seedClaim" classname="com.insurance.service.ClaimServiceTest" time="0.06" displayname="findById: seed CLM-2026-000001 returns correct reference" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findById_seedClaim()]"/>
+    <testcase name="findByClaimReference_seed" classname="com.insurance.service.ClaimServiceTest" time="0.053" displayname="findByClaimReference: seed CLM-2026-000001 found" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByClaimReference_seed()]"/>
+    <testcase name="findByCustomerId_shankar" classname="com.insurance.service.ClaimServiceTest" time="0.055" displayname="findByCustomerId: Shankar's claims all belong to him" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByCustomerId_shankar()]"/>
+    <testcase name="findByStatus_approved" classname="com.insurance.service.ClaimServiceTest" time="0.062" displayname="findByStatus: APPROVED only returns APPROVED claims" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByStatus_approved()]"/>
+    <testcase name="findByAssignedOfficerId" classname="com.insurance.service.ClaimServiceTest" time="0.052" displayname="findByAssignedOfficerId: returns claims for field officer" uniqueid="[engine:junit-jupiter]/[class:com.insurance.service.ClaimServiceTest]/[method:findByAssignedOfficerId()]">
+      <error>java.lang.RuntimeException: Error finding policy by id: ab000000-0000-0000-0000-000000000001&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:26)&#13;
+	at com.insurance.service.impl.ClaimServiceImpl.submitClaim(ClaimServiceImpl.java:52)&#13;
+	at com.insurance.service.ClaimServiceTest.findByAssignedOfficerId(ClaimServiceTest.java:515)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.postgresql.util.PSQLException: The column name cancellation_reason was not found in this ResultSet.&#13;
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3208)&#13;
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:3044)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.mapRow(PolicyDaoImpl.java:213)&#13;
+	at com.insurance.dao.impl.PolicyDaoImpl.findById(PolicyDaoImpl.java:23)&#13;
+	... 5 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>
